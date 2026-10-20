@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水培咖啡数据资产STO化平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F4C81', // 深蓝色 - 金融、合规
+                        secondary: '#2E7D32', // 绿色 - 农业、数据
+                        accent: '#FF9800', // 橙色 - 强调、行动点
+                        dark: '#1A202C',
+                        light: '#F7FAFC'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif']
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-transform {
+                transition-property: transform;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                transition-duration: 300ms;
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <i class="fa fa-line-chart text-primary text-2xl mr-2"></i>
+                        <span class="font-display font-bold text-xl text-primary">DataAgroSTO</span>
+                    </a>
+                </div>
+                
+                <!-- 桌面导航 -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#overview" class="text-gray-600 hover:text-primary font-medium transition-colors">概览</a>
+                    <a href="#compliance" class="text-gray-600 hover:text-primary font-medium transition-colors">数据合规</a>
+                    <a href="#sto-issue" class="text-gray-600 hover:text-primary font-medium transition-colors">STO发行</a>
+                    <a href="#structure" class="text-gray-600 hover:text-primary font-medium transition-colors">架构设计</a>
+                    <a href="#process" class="text-gray-600 hover:text-primary font-medium transition-colors">操作流程</a>
+                </nav>
+                
+                <!-- 联系按钮 -->
+                <div class="hidden md:block">
+                    <a href="#contact" class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg font-medium transition-colors">
+                        咨询专家
+                    </a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-primary">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="#overview" class="block text-gray-600 hover:text-primary font-medium">概览</a>
+                <a href="#compliance" class="block text-gray-600 hover:text-primary font-medium">数据合规</a>
+                <a href="#sto-issue" class="block text-gray-600 hover:text-primary font-medium">STO发行</a>
+                <a href="#structure" class="block text-gray-600 hover:text-primary font-medium">架构设计</a>
+                <a href="#process" class="block text-gray-600 hover:text-primary font-medium">操作流程</a>
+                <a href="#contact" class="block bg-primary text-white px-5 py-2 rounded-lg font-medium text-center">咨询专家</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="pt-28 pb-20 bg-gradient-to-br from-primary/90 to-primary">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-display font-bold text-white leading-tight text-shadow">
+                        水培咖啡种植数据<br>资产证券化平台
+                    </h1>
+                    <p class="mt-6 text-white/90 text-lg md:text-xl max-w-lg">
+                        将农业数据转化为可交易的金融资产，连接数据价值与全球资本，合规透明的STO解决方案
+                    </p>
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                        <a href="#process" class="bg-accent hover:bg-accent/90 text-white px-8 py-3 rounded-lg font-semibold text-center transition-colors">
+                            了解流程
+                        </a>
+                        <a href="#compliance" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 px-8 py-3 rounded-lg font-semibold text-center transition-colors">
+                            合规路径
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="relative z-10 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-xl">
+                        <canvas id="dataValueChart" width="400" height="300"></canvas>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-secondary/20 rounded-full filter blur-3xl -z-10"></div>
+                    <div class="absolute -top-6 -left-6 w-64 h-64 bg-accent/20 rounded-full filter blur-3xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 概览部分 -->
+    <section id="overview" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-display font-bold text-dark">数据资产化与证券化</h2>
+                <p class="mt-4 text-gray-600 max-w-3xl mx-auto text-lg">
+                    将水培咖啡种植数据通过RWA STO化，实现数据价值的金融转化，连接农业科技与全球资本市场
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 核心价值1 -->
+                <div class="bg-gray-50 rounded-xl p-8 shadow-sm card-hover border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-database text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">数据资产化</h3>
+                    <p class="text-gray-600">
+                        将水培咖啡种植过程中的环境数据、生长数据和产量数据转化为具有经济价值的资产，建立数据价值评估体系。
+                    </p>
+                </div>
+                
+                <!-- 核心价值2 -->
+                <div class="bg-gray-50 rounded-xl p-8 shadow-sm card-hover border border-gray-100">
+                    <div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-shield text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">合规路径</h3>
+                    <p class="text-gray-600">
+                        遵循中国数据出境安全评估办法，确保数据合法出境，同时符合香港证监会对STO发行的监管要求。
+                    </p>
+                </div>
+                
+                <!-- 核心价值3 -->
+                <div class="bg-gray-50 rounded-xl p-8 shadow-sm card-hover border border-gray-100">
+                    <div class="w-14 h-14 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-exchange text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">资产证券化</h3>
+                    <p class="text-gray-600">
+                        通过特殊目的公司(SPV)将数据资产收益权转化为证券化产品，在合规平台进行发行与交易，实现流动性。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-8 md:p-12">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold text-dark mb-4">STO化的核心价值</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>为数据资产提供标准化的估值与交易机制</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>降低投资门槛，吸引全球专业投资者参与农业科技</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>通过区块链技术实现交易透明化与可追溯</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>为数据所有者创造持续收益与资产流动性</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>建立数据资产保护与价值实现的良性循环</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://picsum.photos/id/431/600/400" alt="水培咖啡种植环境" class="rounded-xl shadow-md w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据合规部分 -->
+    <section id="compliance" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-display font-bold text-dark">中国内地数据出境合规路径</h2>
+                <p class="mt-4 text-gray-600 max-w-3xl mx-auto text-lg">
+                    数据合法出境是STO发行的前提，必须严格遵守中国网络安全与数据保护相关法律法规
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- 时间线 -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary/20"></div>
+                
+                <!-- 步骤1 -->
+                <div class="mb-16 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0 md:order-1">
+                            <h3 class="text-xl font-bold text-dark mb-3">数据分类与分级</h3>
+                            <p class="text-gray-600 mb-4">
+                                对"水培咖啡种植数据"进行精准法律定性，区分非重要数据、重要数据和个人信息，奠定合规基础。
+                            </p>
+                            <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-lg text-sm">
+                                核心工作：数据性质法律认定
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10">
+                            <span class="text-white font-bold">1</span>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-12 md:order-2">
+                            <ul class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                                <li class="mb-3 flex items-start">
+                                    <i class="fa fa-leaf text-secondary mt-1 mr-3"></i>
+                                    <span><strong>非重要数据</strong>：农作物生长环境数据（温度、湿度、光照等）</span>
+                                </li>
+                                <li class="mb-3 flex items-start">
+                                    <i class="fa fa-bar-chart text-secondary mt-1 mr-3"></i>
+                                    <span><strong>产量数据</strong>：收获量、质量评估等生产数据</span>
+                                </li>
+                                <li class="mb-3 flex items-start">
+                                    <i class="fa fa-exclamation-triangle text-amber-500 mt-1 mr-3"></i>
+                                    <span><strong>重要数据</strong>：达到国家规定标准的大规模种植数据</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-user text-secondary mt-1 mr-3"></i>
+                                    <span><strong>个人信息</strong>：种植户、操作员等可识别信息</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 步骤2 -->
+                <div class="mb-16 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0">
+                            <ul class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                                <li class="mb-4 flex items-start">
+                                    <i class="fa fa-check-square-o text-primary mt-1 mr-3"></i>
+                                    <span>数据处理者为关键信息基础设施运营者（CISO）</span>
+                                </li>
+                                <li class="mb-4 flex items-start">
+                                    <i class="fa fa-check-square-o text-primary mt-1 mr-3"></i>
+                                    <span>出境数据中包含重要数据</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-square-o text-primary mt-1 mr-3"></i>
+                                    <span>累计向境外提供10万人以上个人信息或1万人以上敏感个人信息</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10">
+                            <span class="text-white font-bold">2</span>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-12 md:text-left">
+                            <h3 class="text-xl font-bold text-dark mb-3">数据出境安全评估</h3>
+                            <p class="text-gray-600 mb-4">
+                                满足触发条件时，必须向国家网信部门申报安全评估，这是项目合法推进的关键环节。
+                            </p>
+                            <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-lg text-sm">
+                                监管依据：《数据出境安全评估办法》
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 步骤3 -->
+                <div class="relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0 md:order-1">
+                            <h3 class="text-xl font-bold text-dark mb-3">安全评估流程</h3>
+                            <p class="text-gray-600 mb-4">
+                                严格按照网信部门要求完成自评、申报材料准备、提交申报和审批流程，确保合规性。
+                            </p>
+                            <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-lg text-sm">
+                                审批时限：最长约52个工作日
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10">
+                            <span class="text-white font-bold">3</span>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-12 md:order-2">
+                            <ul class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 space-y-3">
+                                <li class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3">1</div>
+                                    <span>数据出境风险自评估</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3">2</div>
+                                    <span>准备申报书与自评估报告</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3">3</div>
+                                    <span>与境外接收方签订法律文件</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3">4</div>
+                                    <span>通过省级网信办向国家网信部门申报</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3">5</div>
+                                    <span>网信部门审查与批准</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 关键法律文件 -->
+            <div class="mt-20 bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+                <h3 class="text-2xl font-bold text-dark mb-6 text-center">与境外接收方的关键法律文件</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="p-5 border border-gray-100 rounded-xl bg-gray-50">
+                        <h4 class="font-bold text-primary mb-2">数据处理约定</h4>
+                        <p class="text-gray-600 text-sm">明确出境数据的目的、范围和处理方式，确保符合数据最小化原则</p>
+                    </div>
+                    <div class="p-5 border border-gray-100 rounded-xl bg-gray-50">
+                        <h4 class="font-bold text-primary mb-2">存储与处置条款</h4>
+                        <p class="text-gray-600 text-sm">规定数据在境外保存的地点、期限，以及处理完毕后的合法处置措施</p>
+                    </div>
+                    <div class="p-5 border border-gray-100 rounded-xl bg-gray-50">
+                        <h4 class="font-bold text-primary mb-2">再转移限制</h4>
+                        <p class="text-gray-600 text-sm">严格限制境外接收方将数据再转移给其他方的条件和程序</p>
+                    </div>
+                    <div class="p-5 border border-gray-100 rounded-xl bg-gray-50">
+                        <h4 class="font-bold text-primary mb-2">安全保障义务</h4>
+                        <p class="text-gray-600 text-sm">境外接收方必须采取的技术和管理措施，确保数据安全保护水平</p>
+                    </div>
+                    <div class="p-5 border border-gray-100 rounded-xl bg-gray-50">
+                        <h4 class="font-bold text-primary mb-2">应急处置机制</h4>
+                        <p class="text-gray-600 text-sm">数据安全受损时的通知、补救和应急响应流程</p>
+                    </div>
+                    <div class="p-5 border border-gray-100 rounded-xl bg-gray-50">
+                        <h4 class="font-bold text-primary mb-2">责任追究条款</h4>
+                        <p class="text-gray-600 text-sm">明确双方违反协议的法律责任和赔偿机制</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STO发行部分 -->
+    <section id="sto-issue" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-display font-bold text-dark">STO在香港发行的核心步骤</h2>
+                <p class="mt-4 text-gray-600 max-w-3xl mx-auto text-lg">
+                    在数据合法出境基础上，遵循香港证监会监管要求，完成数据资产的证券化发行
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                <!-- 步骤导航 -->
+                <div class="lg:col-span-2">
+                    <div class="sticky top-24 bg-gray-50 rounded-xl p-6 border border-gray-100">
+                        <h3 class="text-xl font-bold text-dark mb-6">发行流程导航</h3>
+                        <ul class="space-y-4">
+                            <li>
+                                <a href="#step1" class="flex items-center p-3 rounded-lg hover:bg-primary/5 group transition-colors">
+                                    <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 flex-shrink-0">1</div>
+                                    <span class="text-gray-700 group-hover:text-primary">资产重组与SPV设立</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#step2" class="flex items-center p-3 rounded-lg hover:bg-primary/5 group transition-colors">
+                                    <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 flex-shrink-0">2</div>
+                                    <span class="text-gray-700 group-hover:text-primary">资产估值与尽职调查</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#step3" class="flex items-center p-3 rounded-lg hover:bg-primary/5 group transition-colors">
+                                    <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 flex-shrink-0">3</div>
+                                    <span class="text-gray-700 group-hover:text-primary">STO方案设计与文件准备</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#step4" class="flex items-center p-3 rounded-lg hover:bg-primary/5 group transition-colors">
+                                    <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 flex-shrink-0">4</div>
+                                    <span class="text-gray-700 group-hover:text-primary">向香港证监会申请审批</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#step5" class="flex items-center p-3 rounded-lg hover:bg-primary/5 group transition-colors">
+                                    <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 flex-shrink-0">5</div>
+                                    <span class="text-gray-700 group-hover:text-primary">发行与上市交易</span>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <div class="flex items-center mb-4">
+                                <i class="fa fa-info-circle text-primary mr-2"></i>
+                                <h4 class="font-bold text-dark">监管机构</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">
+                                香港证券及期货事务监察委员会（SFC）是STO发行的主要监管机构，负责审批与监督。
+                            </p>
+                            <div class="bg-primary/10 p-4 rounded-lg">
+                                <p class="text-primary text-sm font-medium">
+                                    关键牌照：第1类（证券交易）和第7类（提供自动化交易服务）
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 步骤详情 -->
+                <div class="lg:col-span-3 space-y-16">
+                    <!-- 步骤1 -->
+                    <div id="step1" class="scroll-mt-24">
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                            <div class="bg-primary/10 px-6 py-4 border-b border-gray-100">
+                                <h3 class="text-xl font-bold text-dark">资产重组与SPV设立</h3>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex flex-col md:flex-row gap-6">
+                                    <div class="md:w-1/2">
+                                        <p class="text-gray-600 mb-4">
+                                            在开曼群岛等地设立特殊目的公司(SPV)，作为STO的发行主体，实现资产隔离与风险隔离。
+                                        </p>
+                                        <p class="text-gray-600 mb-4">
+                                            内地运营公司与开曼SPV签订《数据收益权许可协议》，将基于数据资产产生的未来收益权合法授予SPV。
+                                        </p>
+                                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                                            <h4 class="font-bold text-dark mb-2">SPV的核心功能</h4>
+                                            <ul class="space-y-2 text-sm text-gray-600">
+                                                <li class="flex items-start">
+                                                    <i class="fa fa-circle text-xs text-primary mt-1.5 mr-2"></i>
+                                                    <span>持有数据资产收益权，作为发行STO的基础资产</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fa fa-circle text-xs text-primary mt-1.5 mr-2"></i>
+                                                    <span>实现与原始权益人（内地公司）的破产风险隔离</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fa fa-circle text-xs text-primary mt-1.5 mr-2"></i>
+                                                    <span>作为向投资者支付收益的主体</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="md:w-1/2">
+                                        <img src="https://picsum.photos/id/180/600/400" alt="特殊目的公司架构图" class="rounded-lg shadow-sm w-full h-auto object-cover">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 步骤2 -->
+                    <div id="step2" class="scroll-mt-24">
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                            <div class="bg-primary/10 px-6 py-4 border-b border-gray-100">
+                                <h3 class="text-xl font-bold text-dark">资产估值与尽职调查</h3>
+                            </div>
+                            <div class="p-6">
+                                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                    <div class="bg-gray-50 p-5 rounded-lg border border-gray-100">
+                                        <h4 class="font-bold text-dark mb-3 flex items-center">
+                                            <i class="fa fa-calculator text-primary mr-2"></i>
+                                            数据资产估值
+                                        </h4>
+                                        <p class="text-gray-600 text-sm mb-3">
+                                            聘请专业评估机构对"数据收益权"进行科学估值，核心在于未来现金流预测。
+                                        </p>
+                                        <ul class="text-sm text-gray-600 space-y-1">
+                                            <li class="flex items-start">
+                                                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                                <span>咖啡市场价格走势预测</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                                <span>数据驱动的产量提升模型</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                                <span>技术授权与数据使用费用</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                                <span>行业增长率与竞争格局</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-gray-50 p-5 rounded-lg border border-gray-100">
+                                        <h4 class="font-bold text-dark mb-3 flex items-center">
+                                            <i class="fa fa-search text-primary mr-2"></i>
+                                            尽职调查
+                                        </h4>
+                                        <p class="text-gray-600 text-sm mb-3">
+                                            律师和会计师对项目进行全面审查，确保资产清晰、合规。
+                                        </p>
+                                        <ul class="text-sm text-gray-600 space-y-1">
+                                            <li class="flex items-start">
+                                                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                                <span>内地运营公司资质与财务状况</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                                <span>数据资产权属与来源合法性</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                                <span>数据出境合规性文件审查</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                                <span>SPV设立与架构合法性</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="bg-primary/5 p-5 rounded-lg border border-primary/10">
+                                    <h4 class="font-bold text-primary mb-2">估值方法选择</h4>
+                                    <p class="text-gray-600 text-sm">
+                                        数据资产的特殊性要求采用混合估值方法，通常结合收益法（基于未来现金流折现）、市场法（参考类似交易）和成本法（数据采集与处理成本），以确保估值的合理性与准确性。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 步骤3 -->
+                    <div id="step3" class="scroll-mt-24">
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                            <div class="bg-primary/10 px-6 py-4 border-b border-gray-100">
+                                <h3 class="text-xl font-bold text-dark">STO方案设计与文件准备</h3>
+                            </div>
+                            <div class="p-6">
+                                <div class="mb-6">
+                                    <h4 class="font-bold text-dark mb-3">STO金融属性设计</h4>
+                                    <div class="grid md:grid-cols-3 gap-4">
+                                        <div class="border border-gray-200 rounded-lg p-4 text-center">
+                                            <div class="text-primary text-2xl mb-2"><i class="fa fa-equity"></i></div>
+                                            <h5 class="font-medium mb-1">股权型</h5>
+                                            <p class="text-sm text-gray-600">代表SPV的股权份额</p>
+                                        </div>
+                                        <div class="border border-gray-200 rounded-lg p-4 text-center">
+                                            <div class="text-primary text-2xl mb-2"><i class="fa fa-bond"></i></div>
+                                            <h5 class="font-medium mb-1">债权型</h5>
+                                            <p class="text-sm text-gray-600">固定收益的借贷关系</p>
+                                        </div>
+                                        <div class="border border-primary/30 bg-primary/5 rounded-lg p-4 text-center">
+                                            <div class="text-primary text-2xl mb-2"><i class="fa fa-line-chart"></i></div>
+                                            <h5 class="font-medium mb-1">收益权型</h5>
+                                            <p class="text-sm text-gray-600">数据资产产生的收益分配</p>
+                                            <span class="text-xs bg-primary text-white px-2 py-1 rounded mt-2 inline-block">推荐选择</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h4 class="font-bold text-dark mb-3">发行备忘录核心内容</h4>
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full bg-white border border-gray-200">
+                                            <thead>
+                                                <tr class="bg-gray-50">
+                                                    <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">章节</th>
+                                                    <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-700">核心内容</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="py-3 px-4 border-b text-sm font-medium text-gray-700">数据资产描述</td>
+                                                    <td class="py-3 px-4 border-b text-sm text-gray-600">数据类型、采集方法、质量控制、应用场景</td>
+                                                </tr>
+                                                <tr class="bg-gray-50">
+                                                    <td class="py-3 px-4 border-b text-sm font-medium text-gray-700">法律架构</td>
+                                                    <td class="py-3 px-4 border-b text-sm text-gray-600">SPV结构、收益权转让协议、管辖法律</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-3 px-4 border-b text-sm font-medium text-gray-700">风险披露</td>
+                                                    <td class="py-3 px-4 border-b text-sm text-gray-600">数据合规风险、市场风险、技术风险等</td>
+                                                </tr>
+                                                <tr class="bg-gray-50">
+                                                    <td class="py-3 px-4 border-b text-sm font-medium text-gray-700">财务信息</td>
+                                                    <td class="py-3 px-4 border-b text-sm text-gray-600">估值报告、现金流预测、收益分配机制</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-3 px-4 text-sm font-medium text-gray-700">发行条款</td>
+                                                    <td class="py-3 px-4 text-sm text-gray-600">发行规模、价格、锁定期、交易机制</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-bold text-dark mb-3">智能合约与安全审计</h4>
+                                    <p class="text-gray-600 text-sm mb-4">
+                                        开发用于STO发行、交易和收益分配的智能合约，必须经过专业第三方安全审计，确保代码无漏洞、逻辑正确。
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">智能合约开发</span>
+                                        <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">安全漏洞检测</span>
+                                        <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">逻辑验证</span>
+                                        <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">合规性检查</span>
+                                        <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">审计报告</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 步骤4 -->
+                    <div id="step4" class="scroll-mt-24">
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                            <div class="bg-primary/10 px-6 py-4 border-b border-gray-100">
+                                <h3 class="text-xl font-bold text-dark">向香港证监会申请审批</h3>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-gray-600 mb-6">
+                                    通过持有香港证监会相应牌照的合规平台提交申请，SFC将重点审核结构合规性、信息披露充分性和投资者保护措施。
+                                </p>
+                                
+                                <div class="mb-8">
+                                    <h4 class="font-bold text-dark mb-4">SFC重点审核内容</h4>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div class="flex">
+                                            <div class="mr-4 text-primary text-xl mt-1"><i class="fa fa-check-circle"></i></div>
+                                            <div>
+                                                <h5 class="font-medium text-gray-800 mb-1">资产合法性</h5>
+                                                <p class="text-sm text-gray-600">SPV持有数据收益权的合法性和有效性</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="mr-4 text-primary text-xl mt-1"><i class="fa fa-check-circle"></i></div>
+                                            <div>
+                                                <h5 class="font-medium text-gray-800 mb-1">数据出境合规</h5>
+                                                <p class="text-sm text-gray-600">是否已获得中国监管机构的必要批准</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="mr-4 text-primary text-xl mt-1"><i class="fa fa-check-circle"></i></div>
+                                            <div>
+                                                <h5 class="font-medium text-gray-800 mb-1">信息披露</h5>
+                                                <p class="text-sm text-gray-600">风险披露的充分性和准确性</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="mr-4 text-primary text-xl mt-1"><i class="fa fa-check-circle"></i></div>
+                                            <div>
+                                                <h5 class="font-medium text-gray-800 mb-1">投资者适当性</h5>
+                                                <p class="text-sm text-gray-600">是否仅面向专业投资者，保护措施是否充分</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="mr-4 text-primary text-xl mt-1"><i class="fa fa-check-circle"></i></div>
+                                            <div>
+                                                <h5 class="font-medium text-gray-800 mb-1">资产托管</h5>
+                                                <p class="text-sm text-gray-600">是否由合规托管人托管，资金安全机制</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="mr-4 text-primary text-xl mt-1"><i class="fa fa-check-circle"></i></div>
+                                            <div>
+                                                <h5 class="font-medium text-gray-800 mb-1">反洗钱措施</h5>
+                                                <p class="text-sm text-gray-600">KYC/AML流程是否完善有效</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-5 rounded-lg border border-gray-100">
+                                    <h4 class="font-bold text-dark mb-3">专业投资者定义（香港）</h4>
+                                    <p class="text-sm text-gray-600 mb-3">
+                                        根据香港《证券及期货条例》，STO通常仅面向专业投资者，包括：
+                                    </p>
+                                    <ul class="text-sm text-gray-600 space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fa fa-user-circle text-primary mt-1 mr-2"></i>
+                                            <span>拥有800万港元以上投资组合的个人</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fa fa-building text-primary mt-1 mr-2"></i>
+                                            <span>拥有4000万港元以上总资产的法团</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fa fa-university text-primary mt-1 mr-2"></i>
+                                            <span>监管认可的金融机构、政府机构、保险公司等</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 步骤5 -->
+                    <div id="step5" class="scroll-mt-24">
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                            <div class="bg-primary/10 px-6 py-4 border-b border-gray-100">
+                                <h3 class="text-xl font-bold text-dark">发行与上市交易</h3>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex flex-col md:flex-row gap-6 mb-6">
+                                    <div class="md:w-1/2">
+                                        <h4 class="font-bold text-dark mb-3">发行流程</h4>
+                                        <ol class="space-y-3">
+                                            <li class="flex">
+                                                <div class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">1</div>
+                                                <div>
+                                                    <p class="text-sm font-medium text-gray-800">确定发行时间表与募集规模</p>
+                                                </div>
+                                            </li>
+                                            <li class="flex">
+                                                <div class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">2</div>
+                                                <div>
+                                                    <p class="text-sm font-medium text-gray-800">通过合规平台向专业投资者进行路演</p>
+                                                </div>
+                                            </li>
+                                            <li class="flex">
+                                                <div class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">3</div>
+                                                <div>
+                                                    <p class="text-sm font-medium text-gray-800">投资者认购与资金归集</p>
+                                                </div>
+                                            </li>
+                                            <li class="flex">
+                                                <div class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">4</div>
+                                                <div>
+                                                    <p class="text-sm font-medium text-gray-800">智能合约自动发行代币并分配给投资者</p>
+                                                </div>
+                                            </li>
+                                            <li class="flex">
+                                                <div class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">5</div>
+                                                <div>
+                                                    <p class="text-sm font-medium text-gray-800">募集资金按协议分配给原始权益人</p>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                    <div class="md:w-1/2">
+                                        <h4 class="font-bold text-dark mb-3">上市交易平台</h4>
+                                        <p class="text-sm text-gray-600 mb-3">
+                                            发行完成后，在香港证监会认可的虚拟资产交易平台申请挂牌，提供二级市场流动性：
+                                        </p>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 text-center">
+                                                <div class="text-gray-800 font-medium mb-1">OSL Exchange</div>
+                                                <div class="text-xs text-gray-500">SFC持牌平台</div>
+                                            </div>
+                                            <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 text-center">
+                                                <div class="text-gray-800 font-medium mb-1">HashKey Exchange</div>
+                                                <div class="text-xs text-gray-500">SFC持牌平台</div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4 p-3 bg-primary/5 rounded-lg border border-primary/10">
+                                            <h5 class="text-sm font-medium text-primary mb-1">交易后管理</h5>
+                                            <p class="text-xs text-gray-600">
+                                                定期披露数据资产运营情况，按协议向投资者分配收益，处理可能的赎回或回购请求。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-bold text-dark mb-3">投资者收益来源</h4>
+                                    <div class="grid md:grid-cols-3 gap-4">
+                                        <div class="border border-gray-100 rounded-lg p-4">
+                                            <div class="flex items-center mb-2">
+                                                <i class="fa fa-coffee text-secondary mr-2"></i>
+                                                <h5 class="font-medium text-gray-800">咖啡销售收益</h5>
+                                            </div>
+                                            <p class="text-xs text-gray-600">数据优化种植带来的产量提升与品质改善所产生的额外收益</p>
+                                        </div>
+                                        <div class="border border-gray-100 rounded-lg p-4">
+                                            <div class="flex items-center mb-2">
+                                                <i class="fa fa-license text-secondary mr-2"></i>
+                                                <h5 class="font-medium text-gray-800">技术授权费</h5>
+                                            </div>
+                                            <p class="text-xs text-gray-600">向其他种植者授权使用优化数据与种植方案的费用</p>
+                                        </div>
+                                        <div class="border border-gray-100 rounded-lg p-4">
+                                            <div class="flex items-center mb-2">
+                                                <i class="fa fa-database text-secondary mr-2"></i>
+                                                <h5 class="font-medium text-gray-800">数据服务费</h5>
+                                            </div>
+                                            <p class="text-xs text-gray-600">向研究机构、农业企业提供匿名化数据分析的收入</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 架构设计部分 -->
+    <section id="structure" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-display font-bold text-dark">SPV架构设计对比</h2>
+                <p class="mt-4 text-gray-600 max-w-3xl mx-auto text-lg">
+                    选择合适的SPV注册地对STO的成功发行至关重要，开曼群岛与香港各有优势
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-16">
+                <div class="p-6 md:p-8">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="py-4 px-6 border-b text-left text-sm font-semibold text-gray-700">特性</th>
+                                    <th class="py-4 px-6 border-b text-left text-sm font-semibold text-gray-700">开曼群岛（典型离岸地）</th>
+                                    <th class="py-4 px-6 border-b text-left text-sm font-semibold text-gray-700">香港</th>
+                                    <th class="py-4 px-6 border-b text-left text-sm font-semibold text-gray-700">重要性</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-4 px-6 border-b text-sm font-medium text-gray-800">税务中性</td>
+                                    <td class="py-4 px-6 border-b text-sm text-gray-600">
+                                        几乎完全免税：无企业所得税、资本利得税、印花税、股息预提税
+                                    </td>
+                                    <td class="py-4 px-6 border-b text-sm text-gray-600">
+                                        低税率，但非零税：利得税16.5%（符合条件可优惠至8.25%）；股权转让可能需缴纳印花税
+                                    </td>
+                                    <td class="py-4 px-6 border-b text-sm text-gray-600">
+                                        避免SPV层面产生额外税务成本，保证税收清晰可预测
+                                    </td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-4 px-6 border-b text-sm font-medium text-gray-800">法律与灵活性</td>
+                                    <td class="py-4 px-6 border-b text-sm text-gray-600">
+                                        普通法系，非常灵活，支持"Series LLC"等结构，行政负担极小
+                                    </td>
+                                    <td class="py-4 px-6 border-b text-sm text-gray-600">
+                                        普通法系，法律健全但监管更严格，公司法规相对繁琐
+                                    </td>
+                                    <td class="py-4 px-6 border-b text-sm text-gray-600">
+                                        SPV需要高度灵活性和低维护成本，便于快速设立和运作
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-6 border-b text-sm font-medium text-gray-800">资产隔离</td>
+                                    <td class="py-4 px-6 border-b text-sm text-gray-600">
+                                        公认的"破产隔离"天堂，法律对SPV独立法律实体地位有清晰认定
+                                    </td>
+                                    <td class="py-4 px-6 border-b text-sm text-gray-600">
+                                        承认公司独立法人地位，但在极端情况下可能"刺破公司面纱"
+                                    </td>
+                                    <td class="py-4 px-6 border-b text-sm text-gray-600">
+                                        确保即使原始权益人破产，SPV持有的资产也不会被追索
+                                    </td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-4 px-6 border-b text-sm font-medium text-gray-800">保密性</td>
+                                    <td class="py-4 px-6 border-b text-sm text-gray-600">
+                                        股东信息不公开披露，只有注册代理持有信息，保密性强
+                                    </td>
+                                    <td class="py-4 px-6 border-b text-sm text-gray-600">
+                                        公司股东信息可通过公开渠道查询（极少数情况可豁免）
+                                    </td>
+                                    <td class="py-4 px-6 border-b text-sm text-gray-600">
+                                        在合理范围内提供隐私保护，符合全球投资者习惯
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-6 border-b text-sm font-medium text-gray-800">跨境便利性</td>
+                                    <td class="py-4 px-6 border-b text-sm text-gray-600">
+                                        资金进出自由，无外汇管制，国际认可度高
+                                    </td>
+                                    <td class="py-4 px-6 border-b text-sm text-gray-600">
+                                        无外汇管制，但政策可能受内地影响，国际投资者可能认为独立性稍弱
+                                    </td>
+                                    <td class="py-4 px-6 border-b text-sm text-gray-600">
+                                        便于接收资产收益并向全球投资者分发收益
+                                    </td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-4 px-6 text-sm font-medium text-gray-800">监管环境</td>
+                                    <td class="py-4 px-6 text-sm text-gray-600">
+                                        监管宽松，对SPV经营活动限制极少
+                                    </td>
+                                    <td class="py-4 px-6 text-sm text-gray-600">
+                                        监管全面严格，受香港证监会、金管局等机构密切监管
+                                    </td>
+                                    <td class="py-4 px-6 text-sm text-gray-600">
+                                        SPV作为被动持有工具，不需要严格的金融监管
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 典型架构图 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+                <h3 class="text-2xl font-bold text-dark mb-8 text-center">典型架构设计</h3>
+                <div class="relative">
+                    <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 transform -translate-x-1/2"></div>
+                    
+                    <div class="flex flex-col md:flex-row items-center mb-16 relative">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                            <div class="inline-block bg-gray-50 p-5 rounded-lg border border-gray-200 shadow-sm">
+                                <h4 class="font-bold text-dark mb-2">中国内地资产</h4>
+                                <p class="text-sm text-gray-600">水培咖啡种植数据与收益权</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary text-white items-center justify-center z-10">
+                            <i class="fa fa-arrow-right"></i>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="bg-gray-50 p-5 rounded-lg border border-gray-200 shadow-sm">
+                                <h4 class="font-bold text-dark mb-2">数据出境审批</h4>
+                                <p class="text-sm text-gray-600">通过国家网信办数据出境安全评估</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row items-center mb-16 relative">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 md:order-1">
+                            <div class="inline-block bg-primary/5 p-5 rounded-lg border border-primary/20 shadow-sm">
+                                <h4 class="font-bold text-primary mb-2">开曼SPV</h4>
+                                <p class="text-sm text-gray-600">持有数据收益权，实现风险隔离和税务中性</p>
+                                <div class="mt-2 text-xs bg-primary/10 text-primary px-2 py-1 rounded inline-block">资产包装箱</div>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary text-white items-center justify-center z-10">
+                            <i class="fa fa-arrow-right"></i>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 md:order-2">
+                            <div class="bg-gray-50 p-5 rounded-lg border border-gray-200 shadow-sm">
+                                <h4 class="font-bold text-dark mb-2">发行STO</h4>
+                                <p class="text-sm text-gray-600">以数据资产收益权为支撑发行证券化代币</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row items-center relative">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                            <div class="inline-block bg-gray-50 p-5 rounded-lg border border-gray-200 shadow-sm">
+                                <h4 class="font-bold text-dark mb-2">香港金融市场</h4>
+                                <p class="text-sm text-gray-600">受SFC监管的合规交易平台</p>
+                                <div class="mt-2 text-xs bg-secondary/10 text-secondary px-2 py-1 rounded inline-block">证券发行前台</div>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary text-white items-center justify-center z-10">
+                            <i class="fa fa-arrow-right"></i>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="bg-gray-50 p-5 rounded-lg border border-gray-200 shadow-sm">
+                                <h4 class="font-bold text-dark mb-2">全球专业投资者</h4>
+                                <p class="text-sm text-gray-600">通过合规平台参与STO投资与交易</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 p-6 bg-gray-50 rounded-xl border border-gray-100">
+                    <h4 class="font-bold text-dark mb-4 text-center">架构优势总结</h4>
+                    <p class="text-gray-600 text-sm text-center max-w-3xl mx-auto">
+                        "离岸SPV + 香港金融前台"的模式，是全球金融工程师经过数十年实践得出的最优解，
+                        最大限度地结合了离岸地的税务优势、灵活性和风险隔离特性，以及香港作为国际金融中心的信誉度、流动性和合规基础设施。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 操作流程部分 -->
+    <section id="process" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-display font-bold text-dark">全流程操作步骤</h2>
+                <p class="mt-4 text-gray-600 max-w-3xl mx-auto text-lg">
+                    从数据准备到STO上市的完整路径，内外双核，合规先行
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- 进度线 -->
+                <div class="hidden md:block absolute top-6 left-0 right-0 h-1 bg-gray-200 z-0"></div>
+                <div class="hidden md:block absolute top-6 left-0 h-1 bg-primary z-10 transition-all duration-1000" id="progress-bar" style="width: 0%"></div>
+                
+                <!-- 步骤容器 -->
+                <div class="space-y-12 relative z-20">
+                    <!-- 阶段1 -->
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/6 mb-6 md:mb-0">
+                                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl mx-auto md:mx-0">1</div>
+                                <div class="text-center md:text-left mt-2 font-bold text-primary">数据准备阶段</div>
+                            </div>
+                            <div class="md:w-5/6 md:pl-8">
+                                <h3 class="text-xl font-bold text-dark mb-4">数据采集与分类</h3>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">数据采集</h4>
+                                        <p class="text-sm text-gray-600">收集水培咖啡种植过程中的环境、生长和产量数据，建立标准化数据库</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">数据清洗与标准化</h4>
+                                        <p class="text-sm text-gray-600">去除无效数据，统一数据格式与标准，确保数据质量与可用性</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">初步分类分级</h4>
+                                        <p class="text-sm text-gray-600">根据法规要求对数据进行初步分类，区分一般数据与可能的重要数据</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 阶段2 -->
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/6 mb-6 md:mb-0">
+                                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl mx-auto md:mx-0">2</div>
+                                <div class="text-center md:text-left mt-2 font-bold text-primary">境内合规阶段</div>
+                            </div>
+                            <div class="md:w-5/6 md:pl-8">
+                                <h3 class="text-xl font-bold text-dark mb-4">数据出境合规准备</h3>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">法律定性与评估</h4>
+                                        <p class="text-sm text-gray-600">聘请专业律师对数据性质进行法律认定，出具法律意见书</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">数据出境风险自评</h4>
+                                        <p class="text-sm text-gray-600">进行全面的风险评估，准备自评估报告</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">申报材料准备</h4>
+                                        <p class="text-sm text-gray-600">准备申报书、自评估报告及与境外接收方的法律文件</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 阶段3 -->
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/6 mb-6 md:mb-0">
+                                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl mx-auto md:mx-0">3</div>
+                                <div class="text-center md:text-left mt-2 font-bold text-primary">审批阶段</div>
+                            </div>
+                            <div class="md:w-5/6 md:pl-8">
+                                <h3 class="text-xl font-bold text-dark mb-4">数据出境安全评估</h3>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">提交申报</h4>
+                                        <p class="text-sm text-gray-600">通过网络所在地省级网信办向国家网信部门申报安全评估</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">审批与反馈</h4>
+                                        <p class="text-sm text-gray-600">配合网信部门审查，及时回应补充材料要求，获取批准文件</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 阶段4 -->
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/6 mb-6 md:mb-0">
+                                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl mx-auto md:mx-0">4</div>
+                                <div class="text-center md:text-left mt-2 font-bold text-primary">架构搭建阶段</div>
+                            </div>
+                            <div class="md:w-5/6 md:pl-8">
+                                <h3 class="text-xl font-bold text-dark mb-4">SPV设立与资产重组</h3>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">离岸SPV设立</h4>
+                                        <p class="text-sm text-gray-600">在开曼群岛等离岸地设立特殊目的公司，完成法律注册</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">资产转让协议</h4>
+                                        <p class="text-sm text-gray-600">签订《数据收益权许可协议》，将收益权合法授予SPV</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">托管安排</h4>
+                                        <p class="text-sm text-gray-600">选择合规的资产托管机构，确保资产安全与透明</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 阶段5 -->
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/6 mb-6 md:mb-0">
+                                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl mx-auto md:mx-0">5</div>
+                                <div class="text-center md:text-left mt-2 font-bold text-primary">STO准备阶段</div>
+                            </div>
+                            <div class="md:w-5/6 md:pl-8">
+                                <h3 class="text-xl font-bold text-dark mb-4">估值、尽调与文件准备</h3>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">资产估值</h4>
+                                        <p class="text-sm text-gray-600">聘请专业评估机构对数据收益权进行科学估值</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">全面尽职调查</h4>
+                                        <p class="text-sm text-gray-600">律师和会计师对项目进行全面审查，出具尽职调查报告</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">发行文件准备</h4>
+                                        <p class="text-sm text-gray-600">撰写发行备忘录，开发并审计智能合约</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 阶段6 -->
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/6 mb-6 md:mb-0">
+                                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl mx-auto md:mx-0">6</div>
+                                <div class="text-center md:text-left mt-2 font-bold text-primary">审批与发行阶段</div>
+                            </div>
+                            <div class="md:w-5/6 md:pl-8">
+                                <h3 class="text-xl font-bold text-dark mb-4">香港证监会审批与发行</h3>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">SFC审批申请</h4>
+                                        <p class="text-sm text-gray-600">通过持牌平台向香港证监会提交STO发行申请</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">投资者路演</h4>
+                                        <p class="text-sm text-gray-600">向合格专业投资者进行路演，介绍投资价值与风险</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">公开发行</h4>
+                                        <p class="text-sm text-gray-600">获得批准后，通过合规平台完成STO发行与认购</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 阶段7 -->
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/6 mb-6 md:mb-0">
+                                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl mx-auto md:mx-0">7</div>
+                                <div class="text-center md:text-left mt-2 font-bold text-primary">交易与管理阶段</div>
+                            </div>
+                            <div class="md:w-5/6 md:pl-8">
+                                <h3 class="text-xl font-bold text-dark mb-4">上市交易与持续管理</h3>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">二级市场挂牌</h4>
+                                        <p class="text-sm text-gray-600">在SFC认可的交易平台申请挂牌，提供流动性</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">收益分配</h4>
+                                        <p class="text-sm text-gray-600">按协议定期向投资者分配数据资产产生的收益</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+                                        <h4 class="font-medium text-gray-800 mb-2">持续披露与管理</h4>
+                                        <p class="text-sm text-gray-600">定期披露运营情况，处理投资者查询，确保合规运作</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 时间预估 -->
+            <div class="mt-16 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+                <h3 class="text-xl font-bold text-dark mb-6 text-center">全流程时间预估</h3>
+                <div class="h-64">
+                    <canvas id="timelineChart"></canvas>
+                </div>
+                <div class="mt-6 text-center text-sm text-gray-600">
+                    注：总流程约需6-9个月，具体时间取决于监管审批进度与项目复杂度
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 专家咨询部分 -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-primary to-primary/80 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-display font-bold">咨询专业团队</h2>
+                <p class="mt-4 text-white/80 text-lg">
+                    数据资产STO化是复杂的系统工程，我们的专业团队将为您提供全程指导与支持
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-white/90 mb-1">姓名</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50" placeholder="您的姓名">
+                        </div>
+                        <div>
+                            <label for="company" class="block text-sm font-medium text-white/90 mb-1">公司</label>
+                            <input type="text" id="company" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50" placeholder="您的公司名称">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-white/90 mb-1">邮箱</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50" placeholder="您的邮箱地址">
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-white/90 mb-1">电话</label>
+                        <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50" placeholder="您的联系电话">
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-white/90 mb-1">咨询内容</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/50" placeholder="请简要描述您的项目情况和咨询需求"></textarea>
+                    </div>
+                    
+                    <div>
+                        <button type="submit" class="w-full bg-white text-primary hover:bg-white/90 font-semibold py-3 px-6 rounded-lg transition-colors">
+                            提交咨询请求
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="mt-12 max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 text-center">
+                    <div class="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-comments text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">专业咨询</h3>
+                    <p class="text-white/70 text-sm">
+                        数据合规与STO架构专家提供一对一咨询服务
+                    </p>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 text-center">
+                    <div class="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">团队支持</h3>
+                    <p class="text-white/70 text-sm">
+                        律师、投行、评估师组成的跨专业团队全程支持
+                    </p>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 text-center">
+                    <div class="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-road text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">全程指导</h3>
+                    <p class="text-white/70 text-sm">
+                        从数据准备到STO上市的全流程操作指导
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <i class="fa fa-line-chart text-white text-2xl mr-2"></i>
+                        <span class="font-display font-bold text-xl">DataAgroSTO</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">
+                        专注于农业数据资产证券化的创新解决方案，连接数据价值与全球资本。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-6">快速链接</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#overview" class="text-gray-400 hover:text-white transition-colors">概览</a></li>
+                        <li><a href="#compliance" class="text-gray-400 hover:text-white transition-colors">数据合规</a></li>
+                        <li><a href="#sto-issue" class="text-gray-400 hover:text-white transition-colors">STO发行</a></li>
+                        <li><a href="#structure" class="text-gray-400 hover:text-white transition-colors">架构设计</a></li>
+                        <li><a href="#process" class="text-gray-400 hover:text-white transition-colors">操作流程</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-6">资源中心</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">法规解读</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">案例研究</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">白皮书</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">常见问题</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">行业资讯</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-6">联系我们</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker text-gray-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">香港中环金融街8号</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone text-gray-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">+852 9318 8252</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-envelope text-gray-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">erik.wong@jebi.space</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+                <p>&copy; 2023 DataAgroSTO. 保留所有权利。</p>
+                <p class="mt-2">免责声明：本网站信息仅供参考，不构成任何投资建议。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm');
+            }
+            
+            // 更新进度条
+            updateProgressBar();
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动端菜单
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+        
+        // 更新进度条
+        function updateProgressBar() {
+            const sections = document.querySelectorAll('section[id]');
+            const progressBar = document.getElementById('progress-bar');
+            
+            let scrollPosition = window.scrollY + 200;
+            let totalHeight = document.body.scrollHeight - window.innerHeight;
+            let scrollPercentage = (scrollPosition / totalHeight) * 100;
+            
+            // 限制在0-100%
+            scrollPercentage = Math.max(0, Math.min(100, scrollPercentage));
+            progressBar.style.width = scrollPercentage + '%';
+        }
+        
+        // 数据价值图表
+        const dataValueCtx = document.getElementById('dataValueChart').getContext('2d');
+        const dataValueChart = new Chart(dataValueCtx, {
+            type: 'line',
+            data: {
+                labels: ['2023', '2024', '2025', '2026', '2027', '2028'],
+                datasets: [{
+                    label: '数据资产价值 (百万港元)',
+                    data: [5, 12, 22, 38, 55, 78],
+                    borderColor: '#FF9800',
+                    backgroundColor: 'rgba(255, 152, 0, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }, {
+                    label: '传统农业资产价值 (百万港元)',
+                    data: [10, 14, 18, 22, 26, 30],
+                    borderColor: '#2E7D32',
+                    backgroundColor: 'rgba(46, 125, 50, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            color: 'white'
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: '数据资产与传统资产价值增长对比',
+                        color: 'white',
+                        font: {
+                            size: 16
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.7)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.7)'
+                        }
+                    }
+                }
+            }
+        });
+        
+        // 时间线图表
+        const timelineCtx = document.getElementById('timelineChart').getContext('2d');
+        const timelineChart = new Chart(timelineCtx, {
+            type: 'bar',
+            data: {
+                labels: ['数据准备', '境内合规', '审批阶段', '架构搭建', 'STO准备', '审批发行', '交易管理'],
+                datasets: [{
+                    label: '预计时间（周）',
+                    data: [4, 8, 12, 4, 6, 8, 52],
+                    backgroundColor: [
+                        'rgba(15, 76, 129, 0.7)',
+                        'rgba(15, 76, 129, 0.7)',
+                        'rgba(15, 76, 129, 0.7)',
+                        'rgba(15, 76, 129, 0.7)',
+                        'rgba(15, 76, 129, 0.7)',
+                        'rgba(15, 76, 129, 0.7)',
+                        'rgba(46, 125, 50, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(15, 76, 129, 1)',
+                        'rgba(15, 76, 129, 1)',
+                        'rgba(15, 76, 129, 1)',
+                        'rgba(15, 76, 129, 1)',
+                        'rgba(15, 76, 129, 1)',
+                        'rgba(15, 76, 129, 1)',
+                        'rgba(46, 125, 50, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '时间（周）'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+        
+        // 初始化进度条
+        updateProgressBar();
+    </script>
+</body>
+</html>
