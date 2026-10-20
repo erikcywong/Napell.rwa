@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>资产 — Napell RWA</title>
+<meta name="description" content="为什么底层资产必须是种苗供货与组培授权合同，而不是数据或生豆。单位面积经济学、资产类别对比、数据的核证用途。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%231d9bf0' stroke-width='2.5'/%3E%3C/svg%3E">
+</head>
+<body>
+<div id="prog"></div>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html"><span class="mark"></span><b>Napell</b><i>RWA</i></a>
+    <ul class="menu">
+      <li><a href="index.html">首页</a></li>
+      <li>
+        <a href="asset.html" class="on">资产</a>
+        <div class="dd">
+          <a href="asset.html"><strong>资产定义</strong><em>为什么是种苗与协议授权，不是数据</em></a>
+          <a href="asset.html#unit"><strong>单位经济学</strong><em>每 m² 年产值的百倍差距</em></a>
+          <a href="asset.html#compare"><strong>资产类别对比</strong><em>可估值性 · 可执行性 · 监管先例</em></a>
+        </div>
+      </li>
+      <li>
+        <a href="compliance.html">合规</a>
+        <div class="dd">
+          <a href="compliance.html#triage"><strong>出境三档分诊</strong><em>标准合同备案 / 保护认证 / 安全评估</em></a>
+          <a href="compliance.html#sfc"><strong>SFC 发行路径</strong><em>1 号 + 7 号牌 · PI 门槛 · Ensemble</em></a>
+          <a href="compliance.html#spv"><strong>SPV 注册地对比</strong><em>开曼群岛 vs 香港</em></a>
+        </div>
+      </li>
+      <li><a href="structure.html">交易结构</a></li>
+      <li><a href="process.html">流程</a></li>
+      <li><a href="model.html">商业模型</a></li>
+    </ul>
+    <a class="nav-cta" href="investor.html">投资人通道
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="burger" aria-label="菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:56px">
+    <div class="wrap">
+      <div class="eyebrow rv"><b>02</b> / Asset</div>
+      <h1 class="rv" style="max-width:20ch">资产是合同，<span style="color:var(--acc)">不是数据</span></h1>
+      <p class="lead rv">如果你问投资人「违约时我能拿到什么」，而答案是「一个数据库的访问权」，这笔交易在尽调第一轮就结束了。底层资产必须是可定价、可交割、可强制执行的现金流。</p>
+    </div>
+  </section>
+
+  <section class="sec" id="unit">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div>
+          <div class="eyebrow"><b>02.1</b> / Unit economics</div>
+          <h2>同一块面积，两种生意</h2>
+        </div>
+        <p class="dim" style="max-width:38ch">每 m² 每年毛利。数字为假设值，须以实测替换。</p>
+      </div>
+
+      <div class="chart rv">
+        <div class="chart-hd">
+          <h4>每 m² 年毛利 · HK$</h4>
+          <span>Unit gross profit / m² / yr</span>
+        </div>
+        <svg viewBox="0 0 1000 250" role="img" aria-label="咖啡生豆每平方米年毛利66港元，组培苗8000港元">
+          <defs>
+            <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#00ba7c"/><stop offset="1" stop-color="#1d9bf0"/>
+            </linearGradient>
+          </defs>
+          <!-- 生豆 -->
+          <text x="0" y="66" fill="#8b98a5" font-size="14" font-family="Inter,sans-serif">咖啡生豆</text>
+          <text x="0" y="86" fill="#71767b" font-size="11" font-family="ui-monospace,monospace">1.5 kg @ HK$60 · 毛利 73.5%</text>
+          <rect x="230" y="52" width="746" height="30" rx="5" fill="#111416"/>
+          <rect x="230" y="52" width="8" height="30" rx="4" fill="#f4212e"/>
+          <text x="252" y="73" fill="#f4212e" font-size="14" font-family="ui-monospace,monospace">HK$66</text>
+
+          <!-- 种苗 -->
+          <text x="0" y="166" fill="#e7e9ea" font-size="14" font-weight="600" font-family="Inter,sans-serif">组培苗 / 扦插苗</text>
+          <text x="0" y="186" fill="#71767b" font-size="11" font-family="ui-monospace,monospace">800 株 @ HK$20 · 毛利约 50%</text>
+          <rect x="230" y="152" width="746" height="30" rx="5" fill="#111416"/>
+          <rect x="230" y="152" width="746" height="30" rx="5" fill="url(#bg1)" opacity=".92"/>
+          <text x="880" y="173" fill="#000" font-size="14" font-weight="700" font-family="ui-monospace,monospace" text-anchor="end">HK$8,000</text>
+
+          <!-- 差距标注 -->
+          <line x1="238" y1="106" x2="238" y2="152" stroke="#2f3336" stroke-dasharray="3 3"/>
+          <line x1="976" y1="106" x2="976" y2="152" stroke="#2f3336" stroke-dasharray="3 3"/>
+          <text x="500" y="232" fill="#71767b" font-size="11" font-family="ui-monospace,monospace" text-anchor="middle">SAME AREA · SAME YEAR · Δ = ×121</text>
+        </svg>
+        <div class="legend">
+          <span><i style="background:#f4212e"></i>生豆</span>
+          <span><i style="background:linear-gradient(90deg,#00ba7c,#1d9bf0)"></i>种苗</span>
+          <span><i style="background:#2f3336"></i>线性刻度，非对数</span>
+        </div>
+      </div>
+
+      <div class="grid g2 rv" style="margin-top:16px">
+        <div class="card">
+          <span class="num">解释 / 01</span>
+          <h3 style="margin-bottom:12px">咖啡是室内种植里产值最低的作物之一</h3>
+          <p>咖啡生豆的批发价由 ICE 期货锚定，天花板明确；单位面积产量受株高与挂果周期限制，无法通过叠层无限放大。把它放进昂贵的可控环境里种，本质上是用高成本产能去生产低单价商品。</p>
+        </div>
+        <div class="card">
+          <span class="num">解释 / 02</span>
+          <h3 style="margin-bottom:12px">种苗卖的是「能力」，不是「商品」</h3>
+          <p>组培苗的定价锚是庄园的补种成本与新品种的预期收益，不是商品市场价格。同一套雾化水培系统，出苗量按层数倍增，边际成本递减 —— 这是唯一能在室内把单位面积产值做上去的形态。</p>
+        </div>
+      </div>
+
+      <div class="tbl-wrap rv" style="margin-top:16px">
+        <div class="tbl-scroll">
+          <table>
+            <thead>
+              <tr><th>假设项</th><th class="n">生豆</th><th class="n">组培苗</th><th>说明</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>年产量 / m²</td><td class="n">1.5 kg</td><td class="n">800 株</td><td>多层架，按 4–6 层折算</td></tr>
+              <tr><td>单价</td><td class="n">HK$60</td><td class="n">HK$20</td><td>生豆为精品级批发；种苗为脱毒苗出厂价</td></tr>
+              <tr><td>毛利率</td><td class="n">73.5%</td><td class="n">50%</td><td>种苗毛利更低，但绝对额高两个数量级</td></tr>
+              <tr><td>收入 / m²·年</td><td class="n">HK$90</td><td class="n">HK$16,000</td><td>—</td></tr>
+              <tr class="total"><td>毛利 / m²·年</td><td class="n">HK$66</td><td class="n">HK$8,000</td><td>差额约 121 倍</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tbl-note">上述为区间中值假设，用于结构论证，不构成产量或收益承诺。实际数字须由自测数据与第三方核证替换。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow"><b>02.2</b> / Why seedlings</div>
+        <h2>为什么现在是种苗的窗口</h2>
+        <p class="lead tight">三条需求同时出现，且都不依赖咖啡价格。</p>
+      </div>
+      <div class="grid g3">
+        <article class="card rv">
+          <span class="num">01 — REPLANTING</span>
+          <h3>气候驱动的补种潮</h3>
+          <p>主产区老树退化、适宜种植带向高海拔迁移，庄园被迫提前替换植株。补种需求与咖啡价格负相关 —— 价格越低，越需要靠单产提升活下去。</p>
+        </article>
+        <article class="card rv">
+          <span class="num">02 — GENETICS</span>
+          <h3>抗叶锈杂交种替换</h3>
+          <p>叶锈病与干旱推动 F1 杂交种、抗性品种的替换周期。新品种必须靠组培扩繁，苗源是瓶颈 —— 谁有稳定脱毒苗产能，谁拿到订单。</p>
+        </article>
+        <article class="card rv">
+          <span class="num">03 — CERTIFICATION</span>
+          <h3>无土脱毒的可验证性</h3>
+          <p>组培 + 雾化水培环境可控、无土传病害，种苗健康度可逐批核证。这是传统露天苗圃做不到的，也是定价溢价的来源。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="compare">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div>
+          <div class="eyebrow"><b>02.3</b> / Asset class</div>
+          <h2>三类候选资产，只有一类能过承销</h2>
+        </div>
+        <p class="dim" style="max-width:36ch">判断标准只有三个：能不能估值、能不能执行、有没有先例。</p>
+      </div>
+
+      <div class="tbl-wrap rv">
+        <div class="tbl-scroll">
+          <table>
+            <thead>
+              <tr><th>候选底层</th><th>可估值性</th><th>可执行性</th><th>监管先例</th><th class="n">结论</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>数据收益权</strong><br><span class="dimmer" style="font-size:12.5px">种植环境 + 产量数据的未来收益</span></td>
+                <td><span class="chip chip-dn">低</span> 无市场价、无同类交易、现金流依赖假设</td>
+                <td><span class="chip chip-dn">弱</span> 违约后无法处置，无实物可交割</td>
+                <td><span class="chip chip-dn">无</span> 香港无纯数据 STO 先例</td>
+                <td class="n"><span class="chip chip-dn">不采用</span></td>
+              </tr>
+              <tr>
+                <td><strong>生豆仓单</strong><br><span class="dimmer" style="font-size:12.5px">在库生豆，仓单质押</span></td>
+                <td><span class="chip chip-up">高</span> ICE 期货 + 现货升贴水可定价</td>
+                <td><span class="chip chip-up">强</span> 实物可查封、可拍卖</td>
+                <td><span class="chip chip-warn">有</span> 大宗商品仓单融资成熟</td>
+                <td class="n"><span class="chip chip-acc">辅助</span></td>
+              </tr>
+              <tr class="total">
+                <td><strong>种苗供货 + 组培授权应收账款</strong><br><span class="dimmer" style="font-size:12.5px">已签合同的应收款与按株提成</span></td>
+                <td><span class="chip chip-up">高</span> 合同单价 × 数量，可折现</td>
+                <td><span class="chip chip-up">强</span> 债权可诉、可转让、可担保</td>
+                <td><span class="chip chip-up">有</span> 应收账款证券化的成熟范式</td>
+                <td class="n"><span class="chip chip-up">主底层</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tbl-note">仓单作为辅助底层存在意义：它给票据提供实物担保层，让收益分成部分有下行保护。两者叠加，而不是二选一。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow"><b>02.4</b> / Proof layer</div>
+        <h2>那数据到底用来干什么</h2>
+        <p class="lead tight">数据不承担现金流，它承担四件别的事 —— 每一件都能直接换成钱。</p>
+      </div>
+
+      <div class="rows rv">
+        <div class="row">
+          <div class="idx">01</div>
+          <div style="flex:1">
+            <h4>EUDR 溯源合规</h4>
+            <p>欧盟零毁林法规要求咖啡进口提供地块级坐标与批次可追溯证明。室内雾化水培无林地转换、批次边界清晰 —— 天然合规品，可逐批出具证明。</p>
+          </div>
+          <div class="tail">卖给烘焙商与贸易商</div>
+        </div>
+        <div class="row">
+          <div class="idx">02</div>
+          <div style="flex:1">
+            <h4>碳嵌入（insetting）核算</h4>
+            <p>烘焙商的 Scope 3 与嵌入项目需要可审计的产地数据与基准线。连续环境数据 + 能耗计量，是唯一能出具方法学一致报告的方式。</p>
+          </div>
+          <div class="tail">卖给品牌方</div>
+        </div>
+        <div class="row">
+          <div class="idx">03</div>
+          <div style="flex:1">
+            <h4>参数化保险定价</h4>
+            <p>再保方为连续、高频、可核验的环境数据付费 —— 没有这类数据，参数化农业险无法定价。这是付费能力最强的一类买家。</p>
+          </div>
+          <div class="tail">卖给再保与 MGA</div>
+        </div>
+        <div class="row">
+          <div class="idx">04</div>
+          <div style="flex:1">
+            <h4>溢价证据与票据核证</h4>
+            <p>存活率、均匀度、批次一致性 —— 这些是种苗能卖高价的理由，也是票据存续期内每季度复核的依据。</p>
+          </div>
+          <div class="tail">内部 + 投资人披露</div>
+        </div>
+      </div>
+
+      <div class="callout rv" style="margin-top:26px">
+        <p>数据的正确用法是「让合同更值钱」，不是「自己当资产」。</p>
+        <span>Proof layer, not underlying</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="grid g2" style="gap:40px;align-items:start">
+        <div class="rv">
+          <div class="eyebrow"><b>02.5</b> / Spec</div>
+          <h2 style="margin-bottom:22px">合格资产包的六个条件</h2>
+          <ul class="ticks">
+            <li>付款方是可核实的法人庄园，不是关联方或匿名买家</li>
+            <li>单价与数量写进合同，含验收标准与违约条款</li>
+            <li>应收账款可转让、可质押，无禁止转让条款</li>
+            <li>履约由第三方核证，数据可回溯到批次</li>
+            <li>期限与票据期限匹配，允许提前回款</li>
+            <li>单一债务人集中度低于 25%</li>
+          </ul>
+        </div>
+        <div class="rv">
+          <div class="eyebrow"><b>02.6</b> / Fail</div>
+          <h2 style="margin-bottom:22px">什么会让资产不合格</h2>
+          <ul class="ticks cross">
+            <li>只有意向书，没有签章合同</li>
+            <li>付款方是同一控制下的关联公司</li>
+            <li>单价靠「预期溢价」，无历史成交支撑</li>
+            <li>产量数据由自己采集、自己出具</li>
+            <li>合同禁止转让，或需债务人另行同意</li>
+            <li>期限三年以上，票据却设计为一年期</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tight">
+    <div class="wrap">
+      <div class="callout rv" style="border-left-color:var(--acc);display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+        <div>
+          <p style="font-size:20px;letter-spacing:-.02em">下一步：确认你的数据能不能合法出境。</p>
+          <span>Next / 出境三档分诊</span>
+        </div>
+        <a class="btn btn-primary" href="compliance.html">看合规路径
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:18px"><span class="mark"></span><b>Napell</b><i>RWA</i></a>
+        <p style="max-width:36ch;line-height:1.7">雾化水培产能的 RWA 发起与核证。香港发行前台，专业投资者专属。</p>
+      </div>
+      <div>
+        <h5>结构</h5>
+        <a href="asset.html">资产定义</a>
+        <a href="structure.html">交易结构</a>
+        <a href="model.html">商业模型</a>
+        <a href="process.html">流程与成本</a>
+      </div>
+      <div>
+        <h5>合规</h5>
+        <a href="compliance.html#triage">出境三档分诊</a>
+        <a href="compliance.html#sfc">SFC 路径</a>
+        <a href="compliance.html#spv">SPV 对比</a>
+        <a href="investor.html">投资人通道</a>
+      </div>
+      <div>
+        <h5>联系</h5>
+        <p>erik.wong@napell.bio</p>
+        <p>+852 9318 8252</p>
+        <p>Hong Kong, China</p>
+      </div>
+    </div>
+    <div class="disc">
+      <strong>重要提示。</strong> 本网站仅用于结构与商业模式讨论，不构成任何证券或虚拟资产的要约、要约邀请、招揽或投资建议，亦不构成《证券及期货条例》项下的任何要约。文中所述任何发行均只面向符合香港法律定义的<strong>专业投资者</strong>，且须经持牌机构安排。所有数字为假设或区间估计，不代表实际业绩承诺。Napell RWA 未获香港证监会认可，本网站内容未经任何监管机构审核。
+    </div>
+    <div class="f-bot">
+      <span>© <span data-year>2026</span> Napell RWA</span>
+      <span>Hong Kong, China</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

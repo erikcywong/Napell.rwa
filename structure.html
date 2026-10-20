@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>交易结构 — Napell RWA</title>
+<meta name="description" content="收益分成票据 + 优先采购权的完整结构：现金流路径、核证与担保层、核心条款、资金用途与风险因素。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%231d9bf0' stroke-width='2.5'/%3E%3C/svg%3E">
+</head>
+<body>
+<div id="prog"></div>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html"><span class="mark"></span><b>Napell</b><i>RWA</i></a>
+    <ul class="menu">
+      <li><a href="index.html">首页</a></li>
+      <li>
+        <a href="asset.html">资产</a>
+        <div class="dd">
+          <a href="asset.html"><strong>资产定义</strong><em>为什么是种苗与协议授权，不是数据</em></a>
+          <a href="asset.html#unit"><strong>单位经济学</strong><em>每 m² 年产值的百倍差距</em></a>
+          <a href="asset.html#compare"><strong>资产类别对比</strong><em>可估值性 · 可执行性 · 监管先例</em></a>
+        </div>
+      </li>
+      <li>
+        <a href="compliance.html">合规</a>
+        <div class="dd">
+          <a href="compliance.html#triage"><strong>出境三档分诊</strong><em>标准合同备案 / 保护认证 / 安全评估</em></a>
+          <a href="compliance.html#sfc"><strong>SFC 发行路径</strong><em>1 号 + 7 号牌 · PI 门槛 · Ensemble</em></a>
+          <a href="compliance.html#spv"><strong>SPV 注册地对比</strong><em>开曼群岛 vs 香港</em></a>
+        </div>
+      </li>
+      <li><a href="structure.html" class="on">交易结构</a></li>
+      <li><a href="process.html">流程</a></li>
+      <li><a href="model.html">商业模型</a></li>
+    </ul>
+    <a class="nav-cta" href="investor.html">投资人通道
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="burger" aria-label="菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:56px">
+    <div class="wrap">
+      <div class="eyebrow rv"><b>04</b> / Structure</div>
+      <h1 class="rv" style="max-width:24ch">收益分成票据，<span style="color:var(--acc)">加一份采购权</span></h1>
+      <p class="lead rv">只给收益率，这是一张高息债；再给折价拿货权，买家才会从「加密基金」换成「产业买家」。后者定价理性、持有期长、不要求退出通道。</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow"><b>04.1</b> / Architecture</div>
+        <h2>现金流、核证、担保，三层并行</h2>
+        <p class="lead tight">每一层都有独立的对手方与文件。任何一层缺失，结构就不成立。</p>
+      </div>
+
+      <div style="max-width:720px;margin:0 auto">
+        <div class="flow-node rv" style="text-align:center">
+          <b>庄园买方 · Estates</b>
+          <span>咖啡产区补种需求方，独立法人，非关联方</span>
+        </div>
+        <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M6 14l6 6 6-6"/></svg></div>
+
+        <div class="flow-node rv" style="border-color:rgba(29,155,240,.4);background:linear-gradient(180deg,rgba(29,155,240,.06),transparent 60%),var(--panel)">
+          <b>种苗供货 + 组培授权合同</b>
+          <span>单价 · 数量 · 验收标准 · 按株提成 · 违约条款。这是底层资产本体</span>
+        </div>
+        <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M6 14l6 6 6-6"/></svg></div>
+
+        <div class="flow-node rv">
+          <b>Napell 运营主体（境内 / 香港）</b>
+          <span>履约方：基地运营、出货、开票、收款</span>
+        </div>
+        <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M6 14l6 6 6-6"/></svg></div>
+
+        <div class="flow-node rv" style="border-style:dashed">
+          <b>收益权转让协议</b>
+          <span>跨境法律文件：目的、范围、存储地、再转移限制、应急处置</span>
+        </div>
+        <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M6 14l6 6 6-6"/></svg></div>
+
+        <div class="flow-node rv" style="border-color:rgba(29,155,240,.5);background:linear-gradient(180deg,rgba(29,155,240,.1),transparent 65%),var(--panel)">
+          <b>开曼 SPV · 破产隔离</b>
+          <span>持有合同债权与收益权；与运营主体风险隔离；发行主体</span>
+        </div>
+        <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M6 14l6 6 6-6"/></svg></div>
+
+        <div class="flow-node rv" style="border-color:rgba(0,186,124,.42);background:linear-gradient(180deg,rgba(0,186,124,.07),transparent 65%),var(--panel)">
+          <b>收益分成票据 · 8–12% + 优先采购权</b>
+          <span>按季分配 · 摊还安排 · 折价采购额度 · 转让受限</span>
+        </div>
+        <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M6 14l6 6 6-6"/></svg></div>
+
+        <div class="flow-node rv" style="text-align:center">
+          <b>专业投资者 · PI only</b>
+          <span>产业买家 / 家族办公室 / 气候与影响基金</span>
+        </div>
+      </div>
+
+      <div class="grid g2 rv" style="margin-top:38px">
+        <div class="card flat">
+          <span class="num">旁路 / PROOF</span>
+          <h4 style="margin-bottom:8px">核证层（不承担现金流）</h4>
+          <p style="font-size:13.5px">IoT 采集 → 第三方核证 → 季度复核报告。作用：证明履约真实、支撑溢价、满足存续披露。数据本身不入 SPV 资产池。</p>
+        </div>
+        <div class="card flat">
+          <span class="num">旁路 / SECURITY</span>
+          <h4 style="margin-bottom:8px">担保层（提供下行保护）</h4>
+          <p style="font-size:13.5px">在库生豆仓单质押 + 应收账款质押 + 回款账户监管。三条同时设，才能在违约时有可处置标的。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div>
+          <div class="eyebrow"><b>04.2</b> / Terms</div>
+          <h2>核心条款框架</h2>
+        </div>
+        <p class="dim" style="max-width:36ch">区间为结构设计的目标值，最终以发行文件为准。</p>
+      </div>
+
+      <div class="tbl-wrap rv">
+        <div class="tbl-scroll">
+          <table>
+            <thead>
+              <tr><th>条款</th><th>设定</th><th>设计理由</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>票息</strong></td><td class="n">8–12% p.a.</td><td>固定 6% + 超额收益分成，把上行留给投资人，下限由合同现金流覆盖</td></tr>
+              <tr><td><strong>期限</strong></td><td class="n">24–36 个月</td><td>与种苗交付周期 + 庄园付款账期匹配，避免期限错配</td></tr>
+              <tr><td><strong>摊还</strong></td><td class="n">按季付息<br>到期还本</td><td>季度现金流与出货批次对齐，减少现金拖拽</td></tr>
+              <tr><td><strong>优先采购权</strong></td><td class="n">额度 = 认购额<br>折价 5–8%</td><td>产业买家的真实诉求是供应保障；这项权利是他们入场的主要理由</td></tr>
+              <tr><td><strong>担保</strong></td><td class="n">仓单质押<br>+ 应收质押<br>+ 账户监管</td><td>违约时可处置标的；没有担保层的收益权票据等同无抵押信用债</td></tr>
+              <tr><td><strong>财务契约</strong></td><td class="n">DSRA ≥ 1 期<br>集中度 &lt; 25%</td><td>债务偿还准备金 + 单一债务人上限，防止单点失效</td></tr>
+              <tr><td><strong>违约处置</strong></td><td class="n">90 天加速到期<br>质押物处置</td><td>先处置仓单，再追索应收，最后追索运营主体</td></tr>
+              <tr><td><strong>信息披露</strong></td><td class="n">季度核证报告<br>年度审计</td><td>核证数据 + 出货台账，投资人可自行核对</td></tr>
+              <tr><td><strong>转让限制</strong></td><td class="n">仅限 PI<br>发行人同意</td><td>不制造虚假流动性，不做公开宣传</td></tr>
+              <tr><td><strong>最低认购</strong></td><td class="n">HK$100 万</td><td>控制持有人数量，降低存续管理成本</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tbl-note">以上为结构设计参考，非任何具体发行的条款。实际条款须由持牌机构、法律顾问与审计师共同确定。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="grid g2" style="gap:40px;align-items:start">
+        <div class="rv">
+          <div class="eyebrow"><b>04.3</b> / Why the option</div>
+          <h2 style="margin-bottom:20px">为什么加采购权</h2>
+          <p class="dim" style="margin-bottom:20px;font-size:15px">同一张票据，加不加这项权利，买家池完全不同。</p>
+          <div class="tbl-wrap">
+            <div class="tbl-scroll">
+              <table style="min-width:420px">
+                <thead><tr><th>只有票息</th><th>票息 + 采购权</th></tr></thead>
+                <tbody>
+                  <tr><td>买家：高息债基金、加密基金</td><td>买家：贸易商、烘焙商、产业资本</td></tr>
+                  <tr><td>关注：票息、抵押率、退出</td><td>关注：货源、品质、价格、稳定性</td></tr>
+                  <tr><td>要求二级流动性</td><td>持有到期，长期合作</td></tr>
+                  <tr><td>议价：要更高的票息</td><td>议价：要更大的采购额度</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="rv">
+          <div class="eyebrow"><b>04.4</b> / Use of proceeds</div>
+          <h2 style="margin-bottom:20px">资金用途</h2>
+          <div class="rows" style="border-top:0">
+            <div class="row" style="padding:15px 0">
+              <div class="idx">55%</div>
+              <div><h4>产能扩张</h4><p>新增雾化水培模块与组培室，直接对应合同交付能力。</p></div>
+            </div>
+            <div class="row" style="padding:15px 0">
+              <div class="idx">20%</div>
+              <div><h4>核证与系统</h4><p>IoT、批次追溯、第三方核证年度费用。</p></div>
+            </div>
+            <div class="row" style="padding:15px 0">
+              <div class="idx">15%</div>
+              <div><h4>营运资金</h4><p>苗床耗材、营养液、人工，覆盖交付周期。</p></div>
+            </div>
+            <div class="row" style="padding:15px 0;border-bottom:0">
+              <div class="idx">10%</div>
+              <div><h4>发行与储备</h4><p>发行成本 + 首期 DSRA 注资。</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow"><b>04.5</b> / Risks</div>
+        <h2>风险因素（写给投资人看的版本）</h2>
+        <p class="lead tight">以下每一条都会写进发行文件，不做淡化处理。</p>
+      </div>
+      <div class="grid g3">
+        <article class="card rv">
+          <span class="num">01 — 履约</span>
+          <h3>产量与存活率不达预期</h3>
+          <p>生物资产受病害、环境失控、操作失误影响。缓解：分批交付、存活率保证条款、保险。</p>
+        </article>
+        <article class="card rv">
+          <span class="num">02 — 集中度</span>
+          <h3>单一庄园违约</h3>
+          <p>付款方集中会放大单点风险。缓解：债务人分散上限、DSRA、仓单质押。</p>
+        </article>
+        <article class="card rv">
+          <span class="num">03 — 监管</span>
+          <h3>出境与发行双重审批</h3>
+          <p>任一环节口径变化都会延后时间表。缓解：分档申报、预留 3 个月缓冲。</p>
+        </article>
+        <article class="card rv">
+          <span class="num">04 — 流动性</span>
+          <h3>无二级市场</h3>
+          <p>持有人可能持有至到期，期间无法退出。这一点不做任何暗示性承诺。</p>
+        </article>
+        <article class="card rv">
+          <span class="num">05 — 汇率与跨境</span>
+          <h3>资金汇回受阻</h3>
+          <p>付汇、分配均需银行合规审查。缓解：发行前完成路径测试。</p>
+        </article>
+        <article class="card rv">
+          <span class="num">06 — 技术</span>
+          <h3>代币与账务不一致</h3>
+          <p>链上记录与 SPV 账册可能偏离。缓解：以 SPV 账册为准，代币仅作权益凭证。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tight">
+    <div class="wrap">
+      <div class="callout rv" style="border-left-color:var(--up);display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+        <div>
+          <p style="font-size:20px;letter-spacing:-.02em">结构看完了？看落地要多久、要多少钱。</p>
+          <span>Next / 流程与成本</span>
+        </div>
+        <a class="btn btn-primary" href="process.html">看流程
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:18px"><span class="mark"></span><b>Napell</b><i>RWA</i></a>
+        <p style="max-width:36ch;line-height:1.7">雾化水培产能的 RWA 发起与核证。香港发行前台，专业投资者专属。</p>
+      </div>
+      <div>
+        <h5>结构</h5>
+        <a href="asset.html">资产定义</a>
+        <a href="structure.html">交易结构</a>
+        <a href="model.html">商业模型</a>
+        <a href="process.html">流程与成本</a>
+      </div>
+      <div>
+        <h5>合规</h5>
+        <a href="compliance.html#triage">出境三档分诊</a>
+        <a href="compliance.html#sfc">SFC 路径</a>
+        <a href="compliance.html#spv">SPV 对比</a>
+        <a href="investor.html">投资人通道</a>
+      </div>
+      <div>
+        <h5>联系</h5>
+        <p>erik.wong@napell.bio</p>
+        <p>+852 9318 8252</p>
+        <p>Hong Kong, China</p>
+      </div>
+    </div>
+    <div class="disc">
+      <strong>重要提示。</strong> 本网站仅用于结构与商业模式讨论，不构成任何证券或虚拟资产的要约、要约邀请、招揽或投资建议，亦不构成《证券及期货条例》项下的任何要约。文中所述任何发行均只面向符合香港法律定义的<strong>专业投资者</strong>，且须经持牌机构安排。所有数字为假设或区间估计，不代表实际业绩承诺。Napell RWA 未获香港证监会认可，本网站内容未经任何监管机构审核。
+    </div>
+    <div class="f-bot">
+      <span>© <span data-year>2026</span> Napell RWA</span>
+      <span>Hong Kong, China</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

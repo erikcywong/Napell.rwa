@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>合规 — Napell RWA</title>
+<meta name="description" content="内地数据出境三档分诊（标准合同备案 / 保护认证 / 安全评估）、香港 SFC 发行路径与专业投资者门槛、SPV 注册地对比与跨境资金安排。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%231d9bf0' stroke-width='2.5'/%3E%3C/svg%3E">
+</head>
+<body>
+<div id="prog"></div>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html"><span class="mark"></span><b>Napell</b><i>RWA</i></a>
+    <ul class="menu">
+      <li><a href="index.html">首页</a></li>
+      <li>
+        <a href="asset.html">资产</a>
+        <div class="dd">
+          <a href="asset.html"><strong>资产定义</strong><em>为什么是种苗与协议授权，不是数据</em></a>
+          <a href="asset.html#unit"><strong>单位经济学</strong><em>每 m² 年产值的百倍差距</em></a>
+          <a href="asset.html#compare"><strong>资产类别对比</strong><em>可估值性 · 可执行性 · 监管先例</em></a>
+        </div>
+      </li>
+      <li>
+        <a href="compliance.html" class="on">合规</a>
+        <div class="dd">
+          <a href="compliance.html#triage"><strong>出境三档分诊</strong><em>标准合同备案 / 保护认证 / 安全评估</em></a>
+          <a href="compliance.html#sfc"><strong>SFC 发行路径</strong><em>1 号 + 7 号牌 · PI 门槛 · Ensemble</em></a>
+          <a href="compliance.html#spv"><strong>SPV 注册地对比</strong><em>开曼群岛 vs 香港</em></a>
+        </div>
+      </li>
+      <li><a href="structure.html">交易结构</a></li>
+      <li><a href="process.html">流程</a></li>
+      <li><a href="model.html">商业模型</a></li>
+    </ul>
+    <a class="nav-cta" href="investor.html">投资人通道
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="burger" aria-label="菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:56px">
+    <div class="wrap">
+      <div class="eyebrow rv"><b>03</b> / Compliance</div>
+      <h1 class="rv" style="max-width:22ch">合规不是一条路，<span style="color:var(--acc)">是三档</span></h1>
+      <p class="lead rv">把最贵最慢的那条当默认，是行业惯例，也是劝退客户最快的方式。农业环境数据多数走得到最轻的一档 —— 前提是你的数据真的是农业环境数据。</p>
+    </div>
+  </section>
+
+  <section class="sec" id="triage">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div>
+          <div class="eyebrow"><b>03.1</b> / Triage</div>
+          <h2>内地数据出境 · 三档分诊</h2>
+        </div>
+        <p class="dim" style="max-width:38ch">先判档，再报价。跳过判定直接报安全评估的，多半没做过实操。</p>
+      </div>
+
+      <div class="tbl-wrap rv">
+        <div class="tbl-scroll">
+          <table>
+            <thead>
+              <tr><th>路径</th><th>触发条件</th><th>受理</th><th class="n">时限</th><th class="n">成本区间</th><th class="n">适用</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>① 标准合同备案</strong><br><span class="dimmer" style="font-size:12.5px">Standard contract filing</span></td>
+                <td>非关键信息基础设施运营者；不含重要数据；累计出境个人信息 &lt; 10 万人（敏感 &lt; 1 万人）</td>
+                <td>省级网信办</td>
+                <td class="n">30–40<br>工作日</td>
+                <td class="n">HK$150–350k</td>
+                <td class="n"><span class="chip chip-up">默认</span></td>
+              </tr>
+              <tr>
+                <td><strong>② 个人信息保护认证</strong><br><span class="dimmer" style="font-size:12.5px">PIP certification</span></td>
+                <td>同量级，但涉多主体、集团内高频流动，或希望一次认证覆盖多个接收方</td>
+                <td>认证机构</td>
+                <td class="n">3–6<br>个月</td>
+                <td class="n">HK$400–800k</td>
+                <td class="n"><span class="chip">多主体</span></td>
+              </tr>
+              <tr>
+                <td><strong>③ 数据出境安全评估</strong><br><span class="dimmer" style="font-size:12.5px">Security assessment</span></td>
+                <td>CIIO；含重要数据；超上述个人信息阈值；或落入行业重要数据目录</td>
+                <td>国家网信办<br>（经省级申报）</td>
+                <td class="n">52 工作日<br><span class="dimmer">可延长</span></td>
+                <td class="n">HK$600k–1.5m</td>
+                <td class="n"><span class="chip chip-warn">例外</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tbl-note">时限与成本为实务区间估计，非官方承诺；实际取决于材料完备度与属地口径。法规依据：《数据出境安全评估办法》《个人信息出境标准合同办法》及后续便利化规定。</div>
+      </div>
+
+      <div class="grid g2 rv" style="margin-top:16px;align-items:start">
+        <div>
+          <h3 style="margin-bottom:18px">判定顺序（不可跳步）</h3>
+          <div class="rows" style="border-top:0">
+            <div class="row" style="padding:14px 0">
+              <div class="idx">Q1</div>
+              <div><h4>是否 CIIO？</h4><p>认定为关键信息基础设施运营者 → 直接进入 ③，无例外。</p></div>
+            </div>
+            <div class="row" style="padding:14px 0">
+              <div class="idx">Q2</div>
+              <div><h4>是否含「重要数据」？</h4><p>查所属行业目录与地方目录。农业生产数据一般不入目录，但大规模、跨省的种植与产量数据可能被纳入。</p></div>
+            </div>
+            <div class="row" style="padding:14px 0">
+              <div class="idx">Q3</div>
+              <div><h4>是否含个人信息？</h4><p>种植户、操作员工牌号与联系方式都算。按「人数」而非「条数」累计。</p></div>
+            </div>
+            <div class="row" style="padding:14px 0;border-bottom:0">
+              <div class="idx">Q4</div>
+              <div><h4>接收方是否再转移？</h4><p>再转移须单独约定并可能触发重新评估 —— 很多项目在这一步翻车。</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart" style="padding:26px">
+          <div class="chart-hd"><h4>分诊决策树</h4><span>Triage tree</span></div>
+          <svg viewBox="0 0 520 400" role="img" aria-label="数据出境分诊决策树">
+            <defs>
+              <marker id="arw" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                <path d="M0 0 L7 3.5 L0 7 z" fill="#3a4046"/>
+              </marker>
+            </defs>
+            <!-- Q1 -->
+            <rect x="150" y="8" width="220" height="44" rx="9" fill="#111416" stroke="#2f3336"/>
+            <text x="260" y="29" fill="#e7e9ea" font-size="12.5" text-anchor="middle" font-family="Inter,sans-serif">是否 CIIO / 含重要数据？</text>
+            <text x="260" y="44" fill="#71767b" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">Q1 · Q2</text>
+            <!-- 右：评估 -->
+            <path d="M370 30 H440 V96" stroke="#3a4046" fill="none" marker-end="url(#arw)"/>
+            <text x="400" y="24" fill="#ffd400" font-size="10" font-family="ui-monospace,monospace">YES</text>
+            <rect x="360" y="100" width="152" height="52" rx="9" fill="rgba(255,212,0,.07)" stroke="rgba(255,212,0,.35)"/>
+            <text x="436" y="122" fill="#ffd400" font-size="12" text-anchor="middle" font-family="Inter,sans-serif">安全评估</text>
+            <text x="436" y="139" fill="#8b98a5" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">52 工作日</text>
+            <!-- 下：Q3 -->
+            <path d="M260 52 V92" stroke="#3a4046" fill="none" marker-end="url(#arw)"/>
+            <text x="268" y="76" fill="#8b98a5" font-size="10" font-family="ui-monospace,monospace">NO</text>
+            <rect x="150" y="96" width="220" height="44" rx="9" fill="#111416" stroke="#2f3336"/>
+            <text x="260" y="117" fill="#e7e9ea" font-size="12.5" text-anchor="middle" font-family="Inter,sans-serif">出境个人信息超阈值？</text>
+            <text x="260" y="132" fill="#71767b" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">Q3</text>
+            <!-- 下：Q4 -->
+            <path d="M260 140 V180" stroke="#3a4046" fill="none" marker-end="url(#arw)"/>
+            <text x="268" y="164" fill="#00ba7c" font-size="10" font-family="ui-monospace,monospace">NO</text>
+            <rect x="150" y="184" width="220" height="44" rx="9" fill="#111416" stroke="#2f3336"/>
+            <text x="260" y="205" fill="#e7e9ea" font-size="12.5" text-anchor="middle" font-family="Inter,sans-serif">多主体 / 需覆盖多接收方？</text>
+            <text x="260" y="220" fill="#71767b" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">Q4</text>
+            <!-- 左：认证 -->
+            <path d="M150 206 H80 V268" stroke="#3a4046" fill="none" marker-end="url(#arw)"/>
+            <text x="86" y="200" fill="#1d9bf0" font-size="10" font-family="ui-monospace,monospace">YES</text>
+            <rect x="8" y="272" width="144" height="52" rx="9" fill="rgba(29,155,240,.07)" stroke="rgba(29,155,240,.35)"/>
+            <text x="80" y="294" fill="#6fc3f7" font-size="12" text-anchor="middle" font-family="Inter,sans-serif">保护认证</text>
+            <text x="80" y="311" fill="#8b98a5" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">3–6 个月</text>
+            <!-- 下：备案 -->
+            <path d="M260 228 V300" stroke="#3a4046" fill="none" marker-end="url(#arw)"/>
+            <text x="268" y="268" fill="#00ba7c" font-size="10" font-family="ui-monospace,monospace">NO</text>
+            <rect x="156" y="304" width="208" height="56" rx="9" fill="rgba(0,186,124,.07)" stroke="rgba(0,186,124,.4)"/>
+            <text x="260" y="327" fill="#4fd6a5" font-size="12.5" text-anchor="middle" font-family="Inter,sans-serif">标准合同备案</text>
+            <text x="260" y="345" fill="#8b98a5" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">30–40 工作日 · 农业数据默认档</text>
+            <text x="260" y="388" fill="#71767b" font-size="10" text-anchor="middle" font-family="ui-monospace,monospace">判定完成后再报价，不反过来</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow"><b>03.2</b> / Misjudgement</div>
+        <h2>四个最常见的误判</h2>
+      </div>
+      <div class="grid g2">
+        <article class="card rv">
+          <span class="num">01</span>
+          <h3>把安全评估当默认</h3>
+          <p>安全评估的定位是例外通道。农业环境数据（温湿度、光照、EC/pH）在多数口径下不入重要数据目录，走标准合同即可。多花 3–6 个月，只为买一份不需要的批准。</p>
+        </article>
+        <article class="card rv">
+          <span class="num">02</span>
+          <h3>漏掉个人信息</h3>
+          <p>种植户名单、操作员排班、承包合同上的身份证号 —— 一条都算。按人数累计，触碰阈值就从 ① 跳到 ③，重新排队。</p>
+        </article>
+        <article class="card rv">
+          <span class="num">03</span>
+          <h3>忽略再转移限制</h3>
+          <p>SPV、托管人、审计师、链上节点，任何一个环节把数据交给第四方，都构成再转移。合同里没写，等于留了个随时引爆的洞。</p>
+        </article>
+        <article class="card rv">
+          <span class="num">04</span>
+          <h3>只做数据，不做资金</h3>
+          <p>数据出境批了，钱回不来一样白做。服务贸易付汇需税务备案；涉股权安排需 ODI 或 37 号文登记。三条腿缺一条，结构就是残的。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sfc">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div>
+          <div class="eyebrow"><b>03.3</b> / Hong Kong</div>
+          <h2>SFC 端：三条可行路径</h2>
+        </div>
+        <p class="dim" style="max-width:38ch">收益分成票据在香港大概率落入「债权证／证券」定义，发行与配售须由持牌机构进行。</p>
+      </div>
+
+      <div class="grid g3">
+        <article class="card accent rv">
+          <span class="num">PATH A</span>
+          <h3>借持牌平台发行</h3>
+          <p>由持有第 1 类（证券交易）与第 7 类（自动化交易服务）牌照的平台安排发行与配售。这是当前最现实的路径，成本可预期，不需自建合规体系。</p>
+          <p style="margin-top:12px"><span class="chip chip-acc">推荐</span></p>
+        </article>
+        <article class="card rv">
+          <span class="num">PATH B</span>
+          <h3>进入代币化资产沙盒</h3>
+          <p>HKMA 的 Ensemble 项目与银行系代币化存款试点，是绕开「首单即监管首例」的可行入口。适合有银行关系的项目，节奏由合作方主导。</p>
+          <p style="margin-top:12px"><span class="chip chip-warn">需合作方</span></p>
+        </article>
+        <article class="card rv">
+          <span class="num">PATH C</span>
+          <h3>纯私募，不挂牌</h3>
+          <p>仅向专业投资者私募配售，不做二级市场、不做公开宣传。合规负担最轻，也最诚实 —— 代价是没有价格发现，也没有「代币化」的故事。</p>
+          <p style="margin-top:12px"><span class="chip">最轻</span></p>
+        </article>
+      </div>
+
+      <div class="tbl-wrap rv" style="margin-top:16px">
+        <div class="tbl-scroll">
+          <table>
+            <thead>
+              <tr><th>专业投资者类别</th><th>门槛</th><th>实务含义</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>个人</strong></td><td class="n">投资组合 ≥ HK$800 万</td><td>需提供银行或券商对账单佐证，不接受自我声明</td></tr>
+              <tr><td><strong>法团 / 合伙</strong></td><td class="n">总资产 ≥ HK$4,000 万<br><span class="dimmer" style="font-size:12px">或投资组合 ≥ HK$800 万</span></td><td>需最近一期审计报告</td></tr>
+              <tr><td><strong>认可机构等</strong></td><td class="n">—</td><td>银行、保险公司、持牌法团、认可基金、政府机构等</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tbl-note">依据《证券及期货条例》及《证券及期货（专业投资者）规则》。接受投资者前须完成适当性评估并留存书面记录。</div>
+      </div>
+
+      <div class="callout rv" style="margin-top:16px;border-left-color:var(--dn)">
+        <p>「代币化能降低融资成本」在这个规模上并不成立。<span class="dim">一次性成本 HK$115–270 万加融资额 1–3%：HK$3,000 万发行即占融资额 8–11%，再加常年 3.5–4.5%，三年期折算每年多付 3–4 个百分点。同规模私人票据一次性 1–2%、常年 0.5%。代币化买的是结构与可分配性，不是便宜的钱。</span></p>
+        <span>Cost of capital / 别拿它当卖点</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="spv">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div>
+          <div class="eyebrow"><b>03.4</b> / SPV</div>
+          <h2>注册地：开曼 vs 香港</h2>
+        </div>
+        <p class="dim" style="max-width:38ch">选择取决于发行对象与税务实质，不是「哪里免税去哪里」。</p>
+      </div>
+
+      <div class="tbl-wrap rv">
+        <div class="tbl-scroll">
+          <table>
+            <thead>
+              <tr><th>维度</th><th>开曼群岛</th><th>香港</th><th>实务影响</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>税务</strong></td>
+                <td>无企业所得税、资本利得税、股息预提税</td>
+                <td>利得税 16.5%（首 200 万 8.25%）；股权转让可能涉印花税</td>
+                <td>SPV 层面税负差异，但须考虑经济实质与 FSIE 规则</td>
+              </tr>
+              <tr>
+                <td><strong>法律灵活性</strong></td>
+                <td>普通法，架构灵活，行政负担极小</td>
+                <td>普通法，公司法规更细，监管更严</td>
+                <td>多批次、多类别票据用开曼更方便</td>
+              </tr>
+              <tr>
+                <td><strong>破产隔离</strong></td>
+                <td>独立法人地位认定清晰，隔离效果公认</td>
+                <td>承认独立法人，极端情形可能刺破面纱</td>
+                <td>投资人尽调关注点不同</td>
+              </tr>
+              <tr>
+                <td><strong>保密性</strong></td>
+                <td>股东信息不公开</td>
+                <td>股东信息可公开查询（少数可豁免）</td>
+                <td>对家族办公室与产业资本影响较大</td>
+              </tr>
+              <tr>
+                <td><strong>跨境便利</strong></td>
+                <td>无外汇管制，国际认可度高</td>
+                <td>无外汇管制，但受内地政策传导影响</td>
+                <td>资金进出与银行开户难度不同</td>
+              </tr>
+              <tr class="total">
+                <td><strong>年维护成本</strong></td>
+                <td class="n">HK$40–80k</td>
+                <td class="n">HK$25–60k</td>
+                <td>开曼需满足经济实质申报（ES filing）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tbl-note">提示：香港自 2023 年起实施外地来源收入豁免（FSIE）新规，离岸被动收入不再自动免税；开曼则须满足经济实质要求。两侧都不是「零成本税务中立」的旧世界。</div>
+      </div>
+
+      <div class="grid g3 rv" style="margin-top:16px">
+        <div class="card flat">
+          <span class="num">资金腿 01</span>
+          <h4 style="margin-bottom:6px">服务贸易付汇</h4>
+          <p style="font-size:13px">境内主体向境外支付授权费／服务费，单笔 5 万美元以上需办理税务备案。</p>
+        </div>
+        <div class="card flat">
+          <span class="num">资金腿 02</span>
+          <h4 style="margin-bottom:6px">收益汇回</h4>
+          <p style="font-size:13px">境外 SPV 向投资人分配收益，需银行 KYC 与来源证明；路径设计要在发行前定好。</p>
+        </div>
+        <div class="card flat">
+          <span class="num">资金腿 03</span>
+          <h4 style="margin-bottom:6px">境外持股</h4>
+          <p style="font-size:13px">境内居民持有境外 SPV 权益需 37 号文登记；机构对外投资需 ODI 备案。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tight">
+    <div class="wrap">
+      <div class="callout rv" style="border-left-color:var(--acc);display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+        <div>
+          <p style="font-size:20px;letter-spacing:-.02em">合规有了，接下来是结构。</p>
+          <span>Next / 交易结构</span>
+        </div>
+        <a class="btn btn-primary" href="structure.html">看结构设计
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:18px"><span class="mark"></span><b>Napell</b><i>RWA</i></a>
+        <p style="max-width:36ch;line-height:1.7">雾化水培产能的 RWA 发起与核证。香港发行前台，专业投资者专属。</p>
+      </div>
+      <div>
+        <h5>结构</h5>
+        <a href="asset.html">资产定义</a>
+        <a href="structure.html">交易结构</a>
+        <a href="model.html">商业模型</a>
+        <a href="process.html">流程与成本</a>
+      </div>
+      <div>
+        <h5>合规</h5>
+        <a href="compliance.html#triage">出境三档分诊</a>
+        <a href="compliance.html#sfc">SFC 路径</a>
+        <a href="compliance.html#spv">SPV 对比</a>
+        <a href="investor.html">投资人通道</a>
+      </div>
+      <div>
+        <h5>联系</h5>
+        <p>erik.wong@napell.bio</p>
+        <p>+852 9318 8252</p>
+        <p>Hong Kong, China</p>
+      </div>
+    </div>
+    <div class="disc">
+      <strong>重要提示。</strong> 本网站仅用于结构与商业模式讨论，不构成任何证券或虚拟资产的要约、要约邀请、招揽或投资建议，亦不构成《证券及期货条例》项下的任何要约。文中所述任何发行均只面向符合香港法律定义的<strong>专业投资者</strong>，且须经持牌机构安排。所有数字为假设或区间估计，不代表实际业绩承诺。Napell RWA 未获香港证监会认可，本网站内容未经任何监管机构审核。本页法规描述为概要，不构成法律意见。
+    </div>
+    <div class="f-bot">
+      <span>© <span data-year>2026</span> Napell RWA</span>
+      <span>Hong Kong, China</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>投资人通道 — Napell RWA</title>
+<meta name="description" content="专业投资者专属通道。收益分成票据的标的结构、收益构成、尽调材料与风险提示。仅限符合香港法律定义的专业投资者。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%231d9bf0' stroke-width='2.5'/%3E%3C/svg%3E">
+</head>
+<body>
+<div id="prog"></div>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html"><span class="mark"></span><b>Napell</b><i>RWA</i></a>
+    <ul class="menu">
+      <li><a href="index.html">首页</a></li>
+      <li>
+        <a href="asset.html">资产</a>
+        <div class="dd">
+          <a href="asset.html"><strong>资产定义</strong><em>为什么是种苗与协议授权，不是数据</em></a>
+          <a href="asset.html#unit"><strong>单位经济学</strong><em>每 m² 年产值的百倍差距</em></a>
+          <a href="asset.html#compare"><strong>资产类别对比</strong><em>可估值性 · 可执行性 · 监管先例</em></a>
+        </div>
+      </li>
+      <li>
+        <a href="compliance.html">合规</a>
+        <div class="dd">
+          <a href="compliance.html#triage"><strong>出境三档分诊</strong><em>标准合同备案 / 保护认证 / 安全评估</em></a>
+          <a href="compliance.html#sfc"><strong>SFC 发行路径</strong><em>1 号 + 7 号牌 · PI 门槛 · Ensemble</em></a>
+          <a href="compliance.html#spv"><strong>SPV 注册地对比</strong><em>开曼群岛 vs 香港</em></a>
+        </div>
+      </li>
+      <li><a href="structure.html">交易结构</a></li>
+      <li><a href="process.html">流程</a></li>
+      <li><a href="model.html">商业模型</a></li>
+    </ul>
+    <a class="nav-cta" href="investor.html" style="background:transparent;border:1px solid var(--line-3);color:var(--txt)">投资人通道 · 已进入
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="burger" aria-label="菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:40px">
+    <div class="wrap">
+      <div class="eyebrow rv"><b>07</b> / Investor access</div>
+      <h1 class="rv" style="max-width:26ch">专业投资者通道<span style="color:var(--acc)">。</span></h1>
+      <p class="lead rv">本站点下所有内容仅面向符合《证券及期货条例》定义的专业投资者。继续之前需要你完成确认 —— 这不是形式，是合规要求。</p>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:24px">
+    <div class="wrap">
+      <div class="gate rv" id="pi-gate">
+        <span class="chip chip-warn">PI ONLY</span>
+        <h2 style="margin-top:18px">投资者适当性确认</h2>
+        <p class="dim" style="font-size:14px;line-height:1.7">请逐项确认。四项全部勾选后才可继续查看标的条款。</p>
+
+        <div class="checks">
+          <label>
+            <input type="checkbox">
+            <span>本人／本机构符合香港《证券及期货条例》及《证券及期货（专业投资者）规则》项下的<strong>专业投资者</strong>定义：个人投资组合 ≥ HK$800 万；或法团总资产 ≥ HK$4,000 万；或属认可机构、持牌法团、认可基金等。</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span>我理解本页面内容仅为结构与商业模式讨论，<strong>不构成任何证券要约、招揽或投资建议</strong>，也不构成任何认购邀请。</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span>我理解相关权益<strong>没有二级市场</strong>，可能需持有至到期，期间无法退出，且不存在任何回购或流动性承诺。</span>
+          </label>
+          <label>
+            <input type="checkbox">
+            <span>我是基于自身判断主动查阅本页面，<strong>并非因任何公开招揽或推广</strong>而到访。</span>
+          </label>
+        </div>
+
+        <button class="btn btn-primary" id="pi-unlock" disabled>确认并继续</button>
+        <p class="fine">完整信息备忘录（IM）、审计报告与核证记录仅在完成 KYC / AML 与适当性评估后，由持牌机构安排提供。本页所列条款为结构示例，不代表任何在售产品。</p>
+      </div>
+
+      <div class="locked" id="pi-content">
+        <div class="sec-head split">
+          <div>
+            <div class="eyebrow"><b>07.1</b> / Reference terms</div>
+            <h2>参考标的条款</h2>
+          </div>
+          <p class="dim" style="max-width:40ch">以下为结构示例，用于说明条款形态，不构成任何具体发行。</p>
+        </div>
+
+        <div class="tbl-wrap rv">
+          <div class="tbl-scroll">
+            <table>
+              <thead><tr><th>要素</th><th>设定</th><th>备注</th></tr></thead>
+              <tbody>
+                <tr><td><strong>底层资产</strong></td><td>种苗供货应收账款 + 组培授权提成</td><td>付款方为产区庄园，非关联方</td></tr>
+                <tr><td><strong>发行主体</strong></td><td>开曼群岛 SPV</td><td>破产隔离；持有合同债权</td></tr>
+                <tr><td><strong>规模</strong></td><td class="n">HK$30–60m</td><td>低于 30m 不启动</td></tr>
+                <tr><td><strong>票息</strong></td><td class="n">8–12% p.a.</td><td>固定 6% + 超额收益分成</td></tr>
+                <tr><td><strong>期限</strong></td><td class="n">24–36 个月</td><td>按季付息，到期还本</td></tr>
+                <tr><td><strong>担保</strong></td><td>仓单质押 + 应收质押 + 账户监管</td><td>违约时可处置</td></tr>
+                <tr><td><strong>优先采购权</strong></td><td>额度 = 认购额，折价 5–8%</td><td>产业买家的主要入场理由</td></tr>
+                <tr><td><strong>最低认购</strong></td><td class="n">HK$100 万</td><td>控制持有人数量</td></tr>
+                <tr><td><strong>二级市场</strong></td><td><span class="chip chip-dn">无</span></td><td>不做挂牌，不承诺流动性</td></tr>
+                <tr class="total"><td><strong>状态</strong></td><td colspan="2">结构设计阶段 · 未开始募集</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-note">条款为设计目标区间，最终以发行文件与持牌机构审核结果为准。</div>
+        </div>
+
+        <div class="grid g2 rv" style="margin-top:16px">
+          <div class="card">
+            <span class="num">收益构成</span>
+            <h3 style="margin-bottom:16px">钱从哪来</h3>
+            <div class="rows" style="border-top:0">
+              <div class="row" style="padding:12px 0">
+                <div class="idx">固定</div>
+                <div><h4>6% 现金票息</h4><p>由已签合同的应收账款覆盖，按季支付。</p></div>
+              </div>
+              <div class="row" style="padding:12px 0">
+                <div class="idx">浮动</div>
+                <div><h4>超额收益分成</h4><p>实际回款超出基准线的部分，按约定比例分配。</p></div>
+              </div>
+              <div class="row" style="padding:12px 0;border-bottom:0">
+                <div class="idx">权利</div>
+                <div><h4>折价采购权</h4><p>按认购额获得等额采购额度，用于自用或转售。</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="num">尽调材料</span>
+            <h3 style="margin-bottom:16px">可以索取什么</h3>
+            <ul class="ticks" style="gap:10px">
+              <li>信息备忘录（IM）与条款书</li>
+              <li>底层合同清单与样本（脱敏）</li>
+              <li>估值报告与关键假设表</li>
+              <li>审计报告与法律意见书</li>
+              <li>季度核证报告样本</li>
+              <li>SPV 架构图与托管安排</li>
+            </ul>
+            <p style="margin-top:18px;font-size:12.5px" class="dimmer">索取方式：erik.wong@napell.bio，注明机构名称与 PI 类别。KYC 完成前不提供完整 IM。</p>
+          </div>
+        </div>
+
+        <div class="grid g2 rv" style="margin-top:16px">
+          <div>
+            <h3 style="margin-bottom:18px">适合谁</h3>
+            <ul class="ticks">
+              <li>需要稳定货源与价格锁定的烘焙商、贸易商</li>
+              <li>关注气候与农业转型的家族办公室</li>
+              <li>能接受 2–3 年持有期的产业资本</li>
+              <li>看得懂生物资产风险、愿意做现场尽调的机构</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="margin-bottom:18px">不适合谁</h3>
+            <ul class="ticks cross">
+              <li>需要季度估值、可随时退出的基金</li>
+              <li>以二级市场价差为收益来源的策略</li>
+              <li>要求本金保障或回购承诺的投资者</li>
+              <li>无法接受单一庄园履约风险的组合</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout rv" style="margin-top:32px;border-left-color:var(--dn)">
+          <p>风险提示。<span class="dim">本结构涉及生物资产产量风险、单一债务人违约风险、跨境审批与资金汇回风险，以及完全没有二级市场导致的流动性风险。任何一项实现都可能造成本金损失。历史数据与假设不预示未来表现。</span></p>
+          <span>Read the risk factors, not the coupon</span>
+        </div>
+
+        <div class="grid g3 rv" style="margin-top:16px">
+          <div class="card flat">
+            <span class="num">风险 01</span>
+            <h4 style="margin-bottom:6px">履约风险</h4>
+            <p style="font-size:13px">存活率与出货量不达预期，直接压缩可分配现金流。</p>
+          </div>
+          <div class="card flat">
+            <span class="num">风险 02</span>
+            <h4 style="margin-bottom:6px">审批风险</h4>
+            <p style="font-size:13px">出境与发行双审批，任一延后都影响付息起始日。</p>
+          </div>
+          <div class="card flat">
+            <span class="num">风险 03</span>
+            <h4 style="margin-bottom:6px">处置风险</h4>
+            <p style="font-size:13px">违约时仓单与应收的处置存在时间与折价不确定性。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:18px"><span class="mark"></span><b>Napell</b><i>RWA</i></a>
+        <p style="max-width:36ch;line-height:1.7">雾化水培产能的 RWA 发起与核证。香港发行前台，专业投资者专属。</p>
+      </div>
+      <div>
+        <h5>结构</h5>
+        <a href="asset.html">资产定义</a>
+        <a href="structure.html">交易结构</a>
+        <a href="model.html">商业模型</a>
+        <a href="process.html">流程与成本</a>
+      </div>
+      <div>
+        <h5>合规</h5>
+        <a href="compliance.html#triage">出境三档分诊</a>
+        <a href="compliance.html#sfc">SFC 路径</a>
+        <a href="compliance.html#spv">SPV 对比</a>
+        <a href="investor.html">投资人通道</a>
+      </div>
+      <div>
+        <h5>联系</h5>
+        <p>erik.wong@napell.bio</p>
+        <p>+852 9318 8252</p>
+        <p>Hong Kong, China</p>
+      </div>
+    </div>
+    <div class="disc">
+      <strong>重要提示。</strong> 本页面仅供符合香港法律定义的专业投资者查阅，不构成任何证券或虚拟资产的要约、要约邀请、招揽或投资建议，亦不构成《证券及期货条例》项下的任何要约。页面所述条款为结构示例，不代表任何在售产品或已获批发行。Napell RWA 未获香港证监会认可，本网站内容未经任何监管机构审核。投资涉及风险，可能损失全部本金。
+    </div>
+    <div class="f-bot">
+      <span>© <span data-year>2026</span> Napell RWA</span>
+      <span>Hong Kong, China</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
